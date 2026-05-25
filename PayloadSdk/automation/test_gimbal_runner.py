@@ -22,6 +22,7 @@ import logging
 import sys
 from pathlib import Path
 
+from utils.publish_cli import add_publish_args, maybe_publish_report
 from utils.runner import (
     Step,
     configure_logging,
@@ -210,6 +211,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--only",             nargs="*", default=None,   help="Run only steps with these names")
     parser.add_argument("--skip",             nargs="*", default=None,   help="Skip steps with these names")
     parser.add_argument("--dry-run",          action="store_true",       help="Print steps without running them")
+    add_publish_args(parser)
     return parser.parse_args()
 
 
@@ -267,9 +269,7 @@ def main():
     logger.info("=" * 55)
 
     paths = write_report(suite, output_dir=args.report_dir, report_prefix="gimbal")
-    # logger.info("HTML report -> %s", paths["html"])
-    # logger.info("JSON report -> %s", paths["json"])
-    # logger.info("TXT report  -> %s", paths["txt"])
+    maybe_publish_report(args, paths["html"])
     logger.info("LOG file    -> %s", args.log_file)
 
     sys.exit(0 if suite.failed == 0 else 1)
