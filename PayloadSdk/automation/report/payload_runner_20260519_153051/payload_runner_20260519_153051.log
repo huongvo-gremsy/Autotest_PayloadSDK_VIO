@@ -1,0 +1,88 @@
+15:30:51 [INFO] PayloadSDK Payload Test Runner
+15:30:51 [INFO] Build dir : build/examples
+15:30:51 [INFO] Steps     : 15 active, 1 skipped
+15:30:51 [INFO] TIFF step : skipped because --tiff-file was not provided
+15:30:51 [INFO] ━━ [payload_do_object_detection] Starting: build/examples/payload_do_object_detection
+15:31:03 [INFO] ── [payload_do_object_detection] PASS  (12.2s, rc=0)
+15:31:03 [INFO] [payload_do_object_detection] Waiting 1.0s before next step…
+15:31:04 [INFO] PASS  payload_do_object_detection      PASS  12.2s
+15:31:04 [INFO] ━━ [payload_do_object_tracking] Starting: build/examples/payload_do_object_tracking
+15:31:19 [INFO] [payload_do_object_tracking] max_duration=15.0s reached — sending SIGINT.
+15:31:19 [INFO] [payload_do_object_tracking] Sending SIGINT (Ctrl+C equivalent)…
+15:31:19 [INFO] ── [payload_do_object_tracking] PASS  (15.1s, rc=0)
+15:31:19 [INFO] [payload_do_object_tracking] Waiting 1.0s before next step…
+15:31:20 [INFO] PASS  payload_do_object_tracking       PASS  15.1s
+15:31:20 [INFO] ━━ [payload_download_media_files] Starting: build/examples/payload_download_media_files
+15:31:28 [INFO] [payload_download_media_files] max_duration=8.0s reached — sending SIGINT.
+15:31:28 [INFO] [payload_download_media_files] Sending SIGINT (Ctrl+C equivalent)…
+15:31:28 [INFO] ── [payload_download_media_files] PASS  (8.1s, rc=-2)
+15:31:28 [INFO] [payload_download_media_files] Waiting 1.0s before next step…
+15:31:29 [INFO] PASS  payload_download_media_files     PASS  8.1s
+15:31:29 [INFO] ── [payload_extract_tiff_file] SKIP (disabled)
+15:31:29 [INFO] SKIP  payload_extract_tiff_file        SKIP  0.0s
+15:31:29 [INFO] ━━ [payload_get_component_info] Starting: build/examples/payload_get_component_info
+15:31:37 [INFO] [payload_get_component_info] max_duration=8.0s reached — sending SIGINT.
+15:31:37 [INFO] [payload_get_component_info] Sending SIGINT (Ctrl+C equivalent)…
+15:31:37 [INFO] ── [payload_get_component_info] PASS  (8.1s, rc=0)
+15:31:37 [INFO] [payload_get_component_info] Waiting 1.0s before next step…
+15:31:38 [INFO] PASS  payload_get_component_info       PASS  8.1s
+15:31:38 [INFO] ━━ [payload_get_fov_status] Starting: build/examples/payload_get_fov_status
+15:31:46 [INFO] [payload_get_fov_status] max_duration=8.0s reached — sending SIGINT.
+15:31:46 [INFO] [payload_get_fov_status] Sending SIGINT (Ctrl+C equivalent)…
+15:31:46 [INFO] ── [payload_get_fov_status] PASS  (8.1s, rc=0)
+15:31:46 [INFO] [payload_get_fov_status] Waiting 1.0s before next step…
+15:31:47 [INFO] PASS  payload_get_fov_status           PASS  8.1s
+15:31:47 [INFO] ━━ [payload_get_status] Starting: build/examples/payload_get_status
+15:31:55 [INFO] [payload_get_status] max_duration=8.0s reached — sending SIGINT.
+15:31:55 [INFO] [payload_get_status] Sending SIGINT (Ctrl+C equivalent)…
+15:31:55 [INFO] ── [payload_get_status] PASS  (8.1s, rc=0)
+15:31:55 [INFO] [payload_get_status] Waiting 1.0s before next step…
+15:31:56 [INFO] PASS  payload_get_status               PASS  8.1s
+15:31:56 [INFO] ━━ [payload_get_video_streaming] Starting: build/examples/payload_get_video_streaming
+15:32:00 [INFO] ── [payload_get_video_streaming] FAIL  (3.2s, rc=0)  ✗ Missing expected output: ['---> Got payload has streaming video, Check streaming URI', '---> Got streaming information: ', 'Gstreamer thread created']
+15:32:00 [INFO] [payload_get_video_streaming] Waiting 1.0s before next step…
+15:32:01 [INFO] FAIL  payload_get_video_streaming      FAIL  3.2s
+15:32:01 [INFO] ━━ [payload_set_camera_zoom_targetpos] Starting: build/examples/payload_set_camera_zoom_targetpos
+15:32:26 [INFO] [payload_set_camera_zoom_targetpos] max_duration=25.0s reached — sending SIGINT.
+15:32:26 [INFO] [payload_set_camera_zoom_targetpos] Sending SIGINT (Ctrl+C equivalent)…
+15:32:26 [INFO] ── [payload_set_camera_zoom_targetpos] PASS  (25.1s, rc=0)
+15:32:26 [INFO] [payload_set_camera_zoom_targetpos] Waiting 1.0s before next step…
+15:32:27 [INFO] PASS  payload_set_camera_zoom_targetpos PASS  25.1s
+15:32:27 [INFO] ━━ [payload_set_gps] Starting: build/examples/payload_set_gps
+15:32:35 [INFO] [payload_set_gps] max_duration=8.0s reached — sending SIGINT.
+15:32:35 [INFO] [payload_set_gps] Sending SIGINT (Ctrl+C equivalent)…
+15:32:35 [INFO] ── [payload_set_gps] PASS  (8.1s, rc=0)
+15:32:35 [INFO] [payload_set_gps] Waiting 1.0s before next step…
+15:32:36 [INFO] PASS  payload_set_gps                  PASS  8.1s
+15:32:36 [INFO] ━━ [payload_set_stream_bitrate] Starting: build/examples/payload_set_stream_bitrate -d 1 -b 2000000
+15:32:37 [INFO] ── [payload_set_stream_bitrate] PASS  (1.7s, rc=0)
+15:32:37 [INFO] [payload_set_stream_bitrate] Waiting 1.0s before next step…
+15:32:38 [INFO] PASS  payload_set_stream_bitrate       PASS  1.7s
+15:32:38 [INFO] ━━ [payload_set_stream_profile] Starting: build/examples/payload_set_stream_profile -d 1 -p 1
+15:32:40 [INFO] ── [payload_set_stream_profile] PASS  (1.7s, rc=0)
+15:32:40 [INFO] [payload_set_stream_profile] Waiting 1.0s before next step…
+15:32:41 [INFO] PASS  payload_set_stream_profile       PASS  1.7s
+15:32:41 [INFO] ━━ [payload_set_stream_resolution] Starting: build/examples/payload_set_stream_resolution -d 1 -r 1
+15:32:43 [INFO] ── [payload_set_stream_resolution] PASS  (1.7s, rc=0)
+15:32:43 [INFO] [payload_set_stream_resolution] Waiting 1.0s before next step…
+15:32:44 [INFO] PASS  payload_set_stream_resolution    PASS  1.7s
+15:32:44 [INFO] ━━ [payload_set_stream_resolution_2_random] Starting: build/examples/payload_set_stream_resolution -d 2 -r 1
+15:32:45 [INFO] ── [payload_set_stream_resolution_2_random] PASS  (1.6s, rc=0)
+15:32:45 [INFO] [payload_set_stream_resolution_2_random] Waiting 1.0s before next step…
+15:32:46 [INFO] PASS  payload_set_stream_resolution_2_random PASS  1.6s
+15:32:46 [INFO] ━━ [payload_set_stream_resolution_3_random] Starting: build/examples/payload_set_stream_resolution -d 1 -r 0
+15:32:48 [INFO] ── [payload_set_stream_resolution_3_random] PASS  (1.7s, rc=0)
+15:32:48 [INFO] [payload_set_stream_resolution_3_random] Waiting 1.0s before next step…
+15:32:49 [INFO] PASS  payload_set_stream_resolution_3_random PASS  1.7s
+15:32:49 [INFO] ━━ [payload_set_system_time] Starting: build/examples/payload_set_system_time
+15:32:57 [INFO] [payload_set_system_time] max_duration=8.0s reached — sending SIGINT.
+15:32:57 [INFO] [payload_set_system_time] Sending SIGINT (Ctrl+C equivalent)…
+15:32:57 [INFO] ── [payload_set_system_time] PASS  (8.1s, rc=0)
+15:32:57 [INFO] [payload_set_system_time] Waiting 1.0s before next step…
+15:32:58 [INFO] PASS  payload_set_system_time          PASS  8.1s
+15:32:58 [INFO] 
+15:32:58 [INFO] =======================================================
+15:32:58 [INFO]   RESULTS:  14 passed  1 failed  1 skipped  (127.7s total)
+15:32:58 [INFO] =======================================================
+15:32:58 [INFO] Report written → /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/payload_runner_20260519_153051/payload_runner_20260519_153258.html
+15:32:58 [INFO] LOG file    -> /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/payload_runner_20260519_153051/payload_runner_20260519_153051.log

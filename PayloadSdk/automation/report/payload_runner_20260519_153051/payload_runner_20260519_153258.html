@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regression Report — 2026-05-19 15:32:58</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 32px 40px; border-bottom: 1px solid #1e293b; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em; }
+  .header .meta { color: #64748b; font-size: 0.85rem; margin-top: 6px; }
+  .summary { display: flex; gap: 16px; padding: 24px 40px; flex-wrap: wrap; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 18px 24px; min-width: 140px; }
+  .card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px; }
+  .card .value { font-size: 2rem; font-weight: 700; line-height: 1; }
+  .card.total  .value { color: #94a3b8; }
+  .card.passed .value { color: #22c55e; }
+  .card.failed .value { color: #ef4444; }
+  .card.skip   .value { color: #94a3b8; }
+  .card.dur    .value { color: #818cf8; font-size: 1.4rem; }
+  .progress-wrap { padding: 0 40px 24px; }
+  .progress-bar { height: 6px; background: #1e293b; border-radius: 9999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); border-radius: 9999px; transition: width 0.4s; }
+  .progress-label { font-size: 0.78rem; color: #64748b; margin-top: 6px; }
+  .table-wrap { padding: 0 40px 40px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; table-layout: fixed; min-width: 1500px; }
+  thead tr { background: #1e293b; }
+  th { padding: 10px 14px; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: #64748b; border-bottom: 1px solid #334155; white-space: nowrap; }
+  td { padding: 12px 14px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #1e293b44; }
+  th.col-idx, td.col-idx { width: 16%; }
+  th.col-step, td.col-step { width: 38%; }
+  th.col-status, td.col-status { width: 5%; }
+  th.col-duration, td.col-duration { width: 6%; }
+  th.col-rc, td.col-rc { width: 4%; }
+  th.col-tags, td.col-tags { width: 6%; }
+  th.col-output, td.col-output { width: 35%; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; }
+  .badge-PASS { background: #14532d; color: #4ade80; }
+  .badge-FAIL { background: #450a0a; color: #f87171; }
+  .badge-SKIP { background: #1e293b; color: #64748b; }
+  .step-name { font-weight: 600; color: #f1f5f9; }
+  .reason { color: #f87171; font-size: 0.8rem; margin-top: 4px; font-family: monospace; }
+  .tags span { display: inline-block; background: #1e3a5f; color: #93c5fd; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; margin-right: 4px; }
+  .dur { color: #94a3b8; font-family: monospace; white-space: nowrap; }
+  .rc { font-family: monospace; color: #64748b; }
+  details { margin-top: 4px; }
+  summary { cursor: pointer; color: #64748b; font-size: 0.78rem; }
+  summary:hover { color: #94a3b8; }
+  .col-output summary { white-space: nowrap; }
+  .col-output pre { min-width: 100%; }
+  pre { background: #0f172a; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-top: 6px; font-size: 0.75rem; color: #94a3b8; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; max-height: 260px; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📡 PayloadSDK Regression Report</h1>
+  <div class="meta">Generated 2026-05-19 15:32:58 &nbsp;·&nbsp; Duration 127.7s</div>
+</div>
+
+<div class="summary">
+  <div class="card total"><div class="label">Total</div><div class="value">16</div></div>
+  <div class="card passed"><div class="label">Passed</div><div class="value">14</div></div>
+  <div class="card failed"><div class="label">Failed</div><div class="value">1</div></div>
+  <div class="card skip"><div class="label">Skipped</div><div class="value">1</div></div>
+  <div class="card dur"><div class="label">Duration</div><div class="value">127.7s</div></div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+  <div class="progress-label">88% pass rate (14/16)</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th class="col-idx">#</th>
+  <th class="col-step">Step</th>
+  <th class="col-status">Status</th>
+  <th class="col-duration">Duration</th>
+  <th class="col-rc">RC</th>
+  <th class="col-tags">Tags</th>
+  <th class="col-output">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="rc col-idx">payload_do_object_detection</td>
+  <td class="col-step">
+    <div class="step-name">payload_do_object_detection</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">12.2s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>tracking</span><span>detection</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting Set gimbal mode example...
+[7] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1115951] SDK checkPayloadConnection(): Payload connected! 
+Set view source to EO! 
+Enable object detection, delay in 10 secs 
+Disable object detection. Exit! 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_do_object_tracking</td>
+  <td class="col-step">
+    <div class="step-name">payload_do_object_tracking</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">15.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>tracking</span></td>
+  <td class="col-output"><details><summary>show output (694 lines)</summary><pre>Starting Do Object Tracking example...
+[26] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1189518] SDK checkPayloadConnection(): Payload connected! 
+Thread created
+
+Active the tracker 
+[1189632] SDK setPayloadObjectTrackingMode(): setPayloadObjectTrackingMode 1 
+Start tracking new object 
+[1189638] SDK setPayloadObjectTrackingPosition(): setPayloadObjectTrackingPosition, 1737.00 65.00 128.00 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 0.00, w: 0.00, h: 0.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 0.00, h: 0.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 0.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 2.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 2.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+Lost object. Release the tracker then Try catch another object 
+[1389702] SDK setPayloadObjectTrackingMode(): setPayloadObjectTrackingMode 0 
+onPayloadStatusChanged, status: 2.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 2.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 2.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+Active the tracker 
+[2389757] SDK setPayloadObjectTrackingMode(): setPayloadObjectTrackingMode 1 
+Start tracking new object 
+[2389771] SDK setPayloadObjectTrackingPosition(): setPayloadObjectTrackingPosition, 1024.00 742.00 128.00 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+Object was tracked. Keep this object for 5 seconds... 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 677.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 677.00, w: 131.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 677.00, w: 131.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 677.00, w: 131.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 677.00, w: 131.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 681.00, w: 131.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 131.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 679.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 679.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 679.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 680.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 683.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 683.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 683.00, w: 125.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 683.00, w: 125.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 683.00, w: 125.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 125.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 959.00, y: 681.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 681.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 678.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 678.00, w: 131.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 679.00, w: 131.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 955.00, y: 679.00, w: 131.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 679.00, w: 131.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 131.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 953.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 677.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 679.00, w: 133.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 679.00, w: 128.00, h: 133.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 679.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 960.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 954.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 956.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 678.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 678.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 962.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 681.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 680.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 680.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 961.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 680.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 958.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 679.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 136.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 136.00, h: 136.00 
+onPayloadStatusChanged, status: 1.00, x: 957.00, y: 678.00, w: 136.00, h: 136.00 
+onPayloadStatusChanged, status: 1.00, x: 949.00, y: 678.00, w: 136.00, h: 136.00 
+onPayloadStatusChanged, status: 1.00, x: 949.00, y: 676.00, w: 136.00, h: 136.00 
+onPayloadStatusChanged, status: 1.00, x: 949.00, y: 676.00, w: 141.00, h: 136.00 
+onPayloadStatusChanged, status: 1.00, x: 949.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 949.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+[7589922] SDK setPayloadObjectTrackingMode(): setPayloadObjectTrackingMode 0 
+Object was released. Wait 3 seconds... 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 1.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 0.00, x: 946.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 676.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 141.00, h: 141.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 141.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+Active the tracker 
+[10590015] SDK setPayloadObjectTrackingMode(): setPayloadObjectTrackingMode 1 
+Start tracking new object 
+[10590042] SDK setPayloadObjectTrackingPosition(): setPayloadObjectTrackingPosition, 1183.00 313.00 128.00 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 0.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 896.00, y: 476.00, w: 128.00, h: 128.00 
+Object was tracked. Keep this object for 5 seconds... 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 476.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 255.00, w: 128.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 255.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 255.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 255.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 255.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 252.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 252.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 253.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 253.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 253.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 253.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 253.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 253.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 253.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 253.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 253.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 253.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 248.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 248.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 248.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 248.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 248.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 131.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 131.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1122.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 250.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 250.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1121.00, y: 250.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1115.00, y: 250.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1115.00, y: 254.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1115.00, y: 254.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1115.00, y: 254.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1115.00, y: 254.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 254.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 123.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 121.00, h: 123.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 121.00, h: 118.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 121.00, h: 118.00 
+onPayloadStatusChanged, status: 1.00, x: 1116.00, y: 259.00, w: 121.00, h: 118.00 
+onPayloadStatusChanged, status: 1.00, x: 1116.00, y: 256.00, w: 121.00, h: 118.00 
+onPayloadStatusChanged, status: 1.00, x: 1116.00, y: 256.00, w: 118.00, h: 118.00 
+onPayloadStatusChanged, status: 1.00, x: 1116.00, y: 256.00, w: 118.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1116.00, y: 256.00, w: 118.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 256.00, w: 118.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 118.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 259.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 263.00, w: 116.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 263.00, w: 111.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 263.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 263.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 263.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 268.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 268.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 268.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1117.00, y: 268.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 268.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 263.00, w: 111.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 263.00, w: 114.00, h: 111.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 263.00, w: 114.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 263.00, w: 114.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 263.00, w: 114.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 254.00, w: 114.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 254.00, w: 123.00, h: 116.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 254.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 254.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 254.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 123.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 125.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 252.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 125.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 249.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1120.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 250.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1119.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+onPayloadStatusChanged, status: 1.00, x: 1118.00, y: 251.00, w: 128.00, h: 128.00 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_download_media_files</td>
+  <td class="col-step">
+    <div class="step-name">payload_download_media_files</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.1s</td>
+  <td class="rc col-rc">-2</td>
+  <td class="tags col-tags"><span>payload</span><span>media</span><span>download</span></td>
+  <td class="col-output"><details><summary>show output (11 lines)</summary><pre>The download directory is in build folder.
+IP Address: 192.168.16.68
+
+----
+Select an option:
+  1. List media files
+  2. Download a Image or a Video 
+  3. Download all Images
+  4. Download all Videos
+  Enter &#x27;q&#x27; to quit
+Choice: </pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_extract_tiff_file</td>
+  <td class="col-step">
+    <div class="step-name">payload_extract_tiff_file</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-SKIP">SKIP</span></td>
+  <td class="dur col-duration">0.0s</td>
+  <td class="rc col-rc">—</td>
+  <td class="tags col-tags"><span>payload</span><span>thermal</span><span>tiff</span></td>
+  <td class="col-output">—</td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_get_component_info</td>
+  <td class="col-step">
+    <div class="step-name">payload_get_component_info</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>info</span></td>
+  <td class="col-output"><details><summary>show output (54 lines)</summary><pre>Starting Triiger WB sample example...
+[25] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1120108] SDK checkPayloadConnection(): Payload connected! 
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+_handle_request_component_info 
+ --&gt; Got Component Info,
+ --&gt;  Model name: Vio,
+ --&gt;  Software version: 3.1.4.18,
+ --&gt;  Serial number: 1650925055350,
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_get_fov_status</td>
+  <td class="col-step">
+    <div class="step-name">payload_get_fov_status</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>camera</span><span>fov</span></td>
+  <td class="col-output"><details><summary>show output (33 lines)</summary><pre>Starting SendSystemTime example...
+[38] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1168358] SDK checkPayloadConnection(): Payload connected! 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+Camera ID: 1.00 - HFOV: 18.52 - VFOV: 13.85 
+Camera ID: 2.00 - HFOV: 2.85 - VFOV: 2.30 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_get_status</td>
+  <td class="col-step">
+    <div class="step-name">payload_get_status</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.1s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>status</span></td>
+  <td class="col-output"><details><summary>show output (336 lines)</summary><pre>[1] SDK main(): Starting Set gimbal mode example...
+[22] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+[1100355] SDK main(): Waiting for payload signal! 
+[1129364] SDK checkPayloadConnection(): Payload connected! 
+[1149511] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[1168587] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[1188609] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1208275] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1229950] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1249094] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[1269597] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[1288611] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[1291773] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1309916] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[1312776] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1330372] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[1334816] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1350097] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[1368437] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[1389622] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[1397933] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1410069] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[1418635] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1431286] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[1437941] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1450391] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[1469379] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[1489241] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 350.55 
+[1502956] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1510455] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.25 
+[1523140] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1531424] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 349.95 
+[1543263] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1606930] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1627089] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1645810] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1710960] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1732823] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1751801] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1814550] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1835472] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1853539] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[1919713] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[1939177] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[1960720] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2025611] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2046614] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2065039] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2130569] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2150702] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2169147] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2193191] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[2214473] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[2234569] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2254764] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2274243] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2293599] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[2314919] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[2334680] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[2339081] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2354745] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[2358855] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2373352] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[2378415] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2392717] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[2412622] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[2434301] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[2441991] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2454931] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[2462194] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2471517] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[2482281] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2490550] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[2510390] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[2531170] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 350.55 
+[2545987] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2550134] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.25 
+[2564554] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2569602] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 349.95 
+[2584427] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2650030] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2668730] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2689330] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2754391] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2773201] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2793037] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2859540] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2879658] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[2899132] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[2963823] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[2983504] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3003169] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3067794] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3087488] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3107252] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3172778] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3192131] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3212449] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3236932] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[3257583] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[3279408] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3298931] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3317981] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3342237] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[3357977] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[3378135] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[3383337] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3398490] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[3402611] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3418392] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[3423758] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3439580] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[3458439] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[3478834] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[3488152] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3498749] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[3507398] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3518141] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[3528390] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3536472] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[3557258] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[3578634] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 351.25 
+[3592024] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3597105] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 350.55 
+[3612577] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3617757] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 350.55 
+[3632092] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3699059] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3718740] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3738378] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3804404] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3824352] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3844250] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[3908411] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[3927738] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[3948093] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4013558] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4031770] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4052717] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4116856] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4137158] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4156877] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4221290] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4239710] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4261918] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4284728] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[4304333] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[4326911] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4345912] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4365356] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4386783] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[4406451] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[4426520] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[4431753] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4447830] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[4454455] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4466149] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[4471357] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4486765] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[4506563] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[4526091] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[4535264] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4550518] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[4556819] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4567250] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[4577988] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4585156] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[4605513] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[4628287] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 349.95 
+[4641762] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4647132] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.95 
+[4660309] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4665571] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 349.95 
+[4680184] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4746109] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4764775] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4784411] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4851201] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4870812] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4889644] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[4955750] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[4976108] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[4997743] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5063724] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5083000] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5101449] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5168448] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5188110] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5207968] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5274560] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5293363] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5313871] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5338658] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[5357193] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[5378681] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5398587] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5418077] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5438140] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[5459422] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[5477620] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[5482784] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5500259] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[5503243] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5517663] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[5522547] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5537190] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[5556971] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[5577647] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[5586880] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5597312] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[5606510] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5616194] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[5626298] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5634813] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[5656065] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[5676441] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 350.55 
+[5690084] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5695544] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.95 
+[5709914] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5715155] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 349.95 
+[5729521] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5793355] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5812960] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5832525] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5895570] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[5915181] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[5936350] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[5999778] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6019713] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6041269] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6104292] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6123174] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6146388] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6207874] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6227568] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6248720] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6310324] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6331065] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6349410] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6373208] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[6392723] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[6413413] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6433671] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6453264] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6471878] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[6492993] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[6512525] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[6517653] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6533042] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[6536061] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6550889] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[6556236] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6570452] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[6591014] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[6611665] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[6619942] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6630621] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[6639743] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6650773] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[6659238] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6667686] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[6688167] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[6710150] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 351.25 
+[6724586] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6730083] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.95 
+[6744609] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6750549] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 350.55 
+[6764124] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6827341] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6847556] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6867037] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[6931565] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[6952415] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[6969827] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7032647] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7052295] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7071923] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7135533] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7154771] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7174628] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7240884] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7258542] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7279109] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7343145] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7364876] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7383681] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7408593] SDK onPayloadStatusChanged(): Payload EO_ZOOM_LEVEL: 4.00 
+[7428613] SDK onPayloadStatusChanged(): Payload IR_ZOOM_LEVEL: 8.00 
+[7449514] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7472228] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7489271] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7509668] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LON: 0.000000 
+[7530167] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_LAT: 0.000000 
+[7547741] SDK onPayloadStatusChanged(): Payload PARAM_TARGET_COOR_ALT: 0.000000 
+[7554960] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7568472] SDK onPayloadStatusChanged(): Payload PARAM_CAM_VIEW_MODE: 1.00 
+[7572553] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7587236] SDK onPayloadStatusChanged(): Payload PARAM_CAM_REC_SOURCE: 2.00 
+[7594082] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7606868] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_TYPE: 2.00 
+[7626451] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_PALETTE_ID: 8.00 
+[7648295] SDK onPayloadStatusChanged(): Payload PARAM_GIMBAL_MODE: 0.00 
+[7657771] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7668513] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LON: -73.935242 
+[7677831] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7687137] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_LAT: 40.730610 
+[7698059] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7706232] SDK onPayloadStatusChanged(): Payload PARAM_PAYLOAD_GPS_ALT: 50.000000 
+[7725725] SDK onPayloadStatusChanged(): Payload PARAM_CAM_IR_FFC_MODE: 0.00 
+[7749299] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MAX: 350.55 
+[7763386] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7769981] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MIN: 349.95 
+[7783052] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7788104] SDK onPayloadStatusChanged(): Payload PARAM_IR_TEMP_MEAN: 349.95 
+[7803714] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7869359] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7888640] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[7909623] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+[7972596] SDK onPayloadStatusChanged(): Payload LRF_RANGE: 0.00 
+[7991761] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_X: 0.00 
+[8000233] SDK quit_handler(): 
+[8000240] SDK quit_handler(): TERMINATING AT USER REQUEST 
+[8000242] SDK quit_handler(): 
+CLOSE PORT
+
+CLOSE THREADS 
+[8012005] SDK onPayloadStatusChanged(): Payload PARAM_LRF_OFSET_Y: 0.00 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_get_video_streaming</td>
+  <td class="col-step">
+    <div class="step-name">payload_get_video_streaming</div>
+    <div class="reason">✗ Missing expected output: [&#x27;---&gt; Got payload has streaming video, Check streaming URI&#x27;, &#x27;---&gt; Got streaming information: &#x27;, &#x27;Gstreamer thread created&#x27;]</div>
+    
+  </td>
+  <td class="col-status"><span class="badge badge-FAIL">FAIL</span></td>
+  <td class="dur col-duration">3.23s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>streaming</span><span>video</span></td>
+  <td class="col-output"><details><summary>show output (21 lines)</summary><pre>Starting GetStreaming example...
+[36] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1156772] SDK checkPayloadConnection(): Payload connected! 
+Send request to read camera&#x27;s information 
+   ---&gt; Payload has no streaming video 
+It looks like your video streaming setting was DISABLE Auto Connection 
+Please enter the Web server and switch Auto Connection to ENABLE. Then try again.
+Program exit. 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_camera_zoom_targetpos</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_camera_zoom_targetpos</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">25.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>camera</span><span>zoom</span></td>
+  <td class="col-output"><details><summary>show output (25 lines)</summary><pre>Starting Zoom camera to specific level example...
+[29] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1144976] SDK checkPayloadConnection(): Payload connected! 
+[EO] Switching to Combine zoom mode for extended range...
+[EO] zoom EO camera to 1x 
+[EO] zoom EO camera to 13.5x 
+[EO] zoom EO camera to 25.0x 
+[EO] zoom EO camera to 33.5x 
+[EO] zoom EO camera to 203.5x 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_gps</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_gps</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>gps</span></td>
+  <td class="col-output"><details><summary>show output (207 lines)</summary><pre>Starting SendGPS example with moving coordinates...
+Route: New York City -&gt; Philadelphia
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1184348] SDK checkPayloadConnection(): Payload connected! 
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 0 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 1 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 2 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 3 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 4 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 5 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 6 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 7 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 8 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 9 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 10 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 11 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 12 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 13 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 14 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 15 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 16 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 17 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 18 (Fix Type: 1)
+GPS Fix Type: 1 (NO_FIX) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 19 (Fix Type: 1)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 20 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 20 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 21 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 21 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 22 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 22 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 23 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 23 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 24 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 24 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 25 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 25 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 26 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 26 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 27 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 27 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 28 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 28 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 29 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 29 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 30 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 30 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 31 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 31 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 32 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 32 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 33 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 33 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 34 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 34 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 35 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 35 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 36 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 36 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 37 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 37 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 38 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 38 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 39 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 39 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 40 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 40 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 41 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 41 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 42 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 42 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 43 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 43 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 44 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 44 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 45 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 45 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 46 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 46 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 47 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 47 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 48 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 48 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 49 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 49 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 50 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 50 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 51 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 51 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 52 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 52 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 53 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 53 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 54 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 54 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 55 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 55 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 56 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 56 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 57 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 57 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 58 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 58 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 59 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 59 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 60 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 60 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 61 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 61 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 62 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 62 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 63 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 63 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 64 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 64 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 65 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 65 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 66 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 66 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 67 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 67 (DGPS Fix Available)
+GPS Fix Type: 4 (DGPS) | Lat: 40.730610, Lon: -73.935242, Alt: 50.0m
+Send GPS_RAW_INT to payload: 68 (Fix Type: 4)
+Send GLOBAL_POSITION_INT to payload: 68 (DGPS Fix Available)
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_stream_bitrate</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_stream_bitrate</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">1.67s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>stream</span><span>bitrate</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting SetStreamBitrate example...
+[39] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal...
+[1127268] SDK checkPayloadConnection(): Payload connected! 
+[INFO] Target camera: EO (Electro-Optical)
+[INFO] Requested bitrate: 2000000 bps
+[SUCCESS] Stream bitrate for EO (Electro-Optical) camera set to 2000000 bps.
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_stream_profile</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_stream_profile</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">1.72s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>stream</span><span>profile</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting SetStreamEncProfile example...
+[39] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal...
+[1169429] SDK checkPayloadConnection(): Payload connected! 
+[INFO] Target camera: EO (Electro-Optical)
+[INFO] Requested encoder profile: 1
+[SUCCESS] Stream encoder profile for EO (Electro-Optical) camera set to level 1.
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_stream_resolution</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_stream_resolution</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">1.67s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>stream</span><span>resolution</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting SetStreamResolution example...
+[33] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal...
+[1117747] SDK checkPayloadConnection(): Payload connected! 
+[INFO] Target camera: EO (Electro-Optical)
+[INFO] Requested resolution level: 1
+[SUCCESS] Stream resolution for EO (Electro-Optical) camera set to level 1.
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_stream_resolution</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_stream_resolution_2_random</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">1.62s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>stream</span><span>resolution</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting SetStreamResolution example...
+[33] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal...
+[1106303] SDK checkPayloadConnection(): Payload connected! 
+[INFO] Target camera: IR (Infrared)
+[INFO] Requested resolution level: 1
+[SUCCESS] Stream resolution for IR (Infrared) camera set to level 1.
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_stream_resolution</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_stream_resolution_3_random</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">1.72s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>stream</span><span>resolution</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting SetStreamResolution example...
+[39] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal...
+[1188978] SDK checkPayloadConnection(): Payload connected! 
+[INFO] Target camera: EO (Electro-Optical)
+[INFO] Requested resolution level: 0
+[SUCCESS] Stream resolution for EO (Electro-Optical) camera set to level 0.
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">payload_set_system_time</td>
+  <td class="col-step">
+    <div class="step-name">payload_set_system_time</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>payload</span><span>time</span></td>
+  <td class="col-output"><details><summary>show output (26 lines)</summary><pre>Starting SendSystemTime example...
+[22] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1178978] SDK checkPayloadConnection(): Payload connected! 
+Send Sytem Time to payload: 0, 1779179570864877
+Send Sytem Time to payload: 1, 1779179571865008
+Send Sytem Time to payload: 2, 1779179572865160
+Send Sytem Time to payload: 3, 1779179573865318
+Send Sytem Time to payload: 4, 1779179574865399
+Send Sytem Time to payload: 5, 1779179575865551
+Send Sytem Time to payload: 6, 1779179576865628
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>

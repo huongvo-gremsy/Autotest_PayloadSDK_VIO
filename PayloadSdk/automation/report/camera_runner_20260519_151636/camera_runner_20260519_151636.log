@@ -1,0 +1,83 @@
+15:16:36 [INFO] PayloadSDK Camera Test Runner
+15:16:36 [INFO] Build dir : build/examples
+15:16:36 [INFO] Steps     : 16 active, 0 skipped
+15:16:36 [INFO] ━━ [check_connect] Starting: build/examples/check_connect
+15:16:44 [INFO] [check_connect] max_duration=8.0s reached — sending SIGINT.
+15:16:44 [INFO] [check_connect] Sending SIGINT (Ctrl+C equivalent)…
+15:16:44 [INFO] ── [check_connect] PASS  (8.1s, rc=0)
+15:16:44 [INFO] [check_connect] Waiting 2.0s before next step…
+15:16:46 [INFO] PASS  check_connect                  PASS  8.1s
+15:16:46 [INFO] ━━ [camera_eo_capture_image] Starting: build/examples/camera_eo_capture_image
+15:16:50 [INFO] ── [camera_eo_capture_image] PASS  (3.9s, rc=0)
+15:16:50 [INFO] [camera_eo_capture_image] Waiting 1.0s before next step…
+15:16:51 [INFO] PASS  camera_eo_capture_image        PASS  3.9s
+15:16:51 [INFO] ━━ [camera_eo_record_video] Starting: build/examples/camera_eo_record_video
+15:17:05 [INFO] ── [camera_eo_record_video] PASS  (13.7s, rc=0)
+15:17:05 [INFO] [camera_eo_record_video] Waiting 1.0s before next step…
+15:17:06 [INFO] PASS  camera_eo_record_video         PASS  13.7s
+15:17:06 [INFO] ━━ [camera_eo_set_shutter_speed] Starting: build/examples/camera_eo_set_shutter_speed
+15:17:26 [INFO] [camera_eo_set_shutter_speed] max_duration=20.0s reached — sending SIGINT.
+15:17:26 [INFO] [camera_eo_set_shutter_speed] Sending SIGINT (Ctrl+C equivalent)…
+15:17:26 [INFO] ── [camera_eo_set_shutter_speed] PASS  (20.1s, rc=0)
+15:17:26 [INFO] [camera_eo_set_shutter_speed] Waiting 1.0s before next step…
+15:17:27 [INFO] PASS  camera_eo_set_shutter_speed    PASS  20.1s
+15:17:27 [INFO] ━━ [camera_eo_set_zoom_focus] Starting: build/examples/camera_eo_set_zoom_focus
+15:18:20 [INFO] ── [camera_eo_set_zoom_focus] PASS  (53.2s, rc=0)
+15:18:20 [INFO] [camera_eo_set_zoom_focus] Waiting 1.0s before next step…
+15:18:21 [INFO] PASS  camera_eo_set_zoom_focus       PASS  53.2s
+15:18:21 [INFO] ━━ [camera_eo_trigger_wb_onepush] Starting: build/examples/camera_eo_trigger_wb_onepush
+15:18:26 [INFO] [camera_eo_trigger_wb_onepush] max_duration=5.0s reached — sending SIGINT.
+15:18:26 [INFO] [camera_eo_trigger_wb_onepush] Sending SIGINT (Ctrl+C equivalent)…
+15:18:26 [INFO] ── [camera_eo_trigger_wb_onepush] PASS  (5.1s, rc=0)
+15:18:26 [INFO] [camera_eo_trigger_wb_onepush] Waiting 1.0s before next step…
+15:18:27 [INFO] PASS  camera_eo_trigger_wb_onepush   PASS  5.1s
+15:18:27 [INFO] ━━ [camera_ir_capture_image] Starting: build/examples/camera_ir_capture_image
+15:18:32 [INFO] ── [camera_ir_capture_image] PASS  (4.8s, rc=0)
+15:18:32 [INFO] [camera_ir_capture_image] Waiting 1.0s before next step…
+15:18:33 [INFO] PASS  camera_ir_capture_image        PASS  4.8s
+15:18:33 [INFO] ━━ [camera_ir_record_video] Starting: build/examples/camera_ir_record_video
+15:18:45 [INFO] ── [camera_ir_record_video] PASS  (12.1s, rc=0)
+15:18:45 [INFO] [camera_ir_record_video] Waiting 1.0s before next step…
+15:18:46 [INFO] PASS  camera_ir_record_video         PASS  12.1s
+15:18:46 [INFO] ━━ [camera_ir_set_palette] Starting: build/examples/camera_ir_set_palette
+15:19:06 [INFO] ── [camera_ir_set_palette] PASS  (20.2s, rc=0)
+15:19:06 [INFO] [camera_ir_set_palette] Waiting 1.0s before next step…
+15:19:07 [INFO] PASS  camera_ir_set_palette          PASS  20.2s
+15:19:07 [INFO] ━━ [camera_ir_set_zoom] Starting: build/examples/camera_ir_set_zoom
+15:19:49 [INFO] ── [camera_ir_set_zoom] PASS  (41.2s, rc=0)
+15:19:49 [INFO] [camera_ir_set_zoom] Waiting 1.0s before next step…
+15:19:50 [INFO] PASS  camera_ir_set_zoom             PASS  41.2s
+15:19:50 [INFO] ━━ [camera_ir_do_ffc_control] Starting: build/examples/camera_ir_do_ffc_control
+15:20:16 [INFO] ── [camera_ir_do_ffc_control] PASS  (26.2s, rc=0)
+15:20:16 [INFO] [camera_ir_do_ffc_control] Waiting 1.0s before next step…
+15:20:17 [INFO] PASS  camera_ir_do_ffc_control       PASS  26.2s
+15:20:17 [INFO] ━━ [camera_ir_isotherm_profile] Starting: build/examples/camera_ir_isotherm_profile
+15:20:42 [INFO] [camera_ir_isotherm_profile] max_duration=25.0s reached — sending SIGINT.
+15:20:42 [INFO] [camera_ir_isotherm_profile] Sending SIGINT (Ctrl+C equivalent)…
+15:20:42 [INFO] ── [camera_ir_isotherm_profile] PASS  (25.1s, rc=0)
+15:20:42 [INFO] [camera_ir_isotherm_profile] Waiting 1.0s before next step…
+15:20:43 [INFO] PASS  camera_ir_isotherm_profile     PASS  25.1s
+15:20:43 [INFO] ━━ [camera_time_lapse_photography] Starting: build/examples/camera_time_lapse_photography
+15:20:58 [INFO] ── [camera_time_lapse_photography] PASS  (15.3s, rc=0)
+15:20:58 [INFO] [camera_time_lapse_photography] Waiting 1.0s before next step…
+15:20:59 [INFO] PASS  camera_time_lapse_photography  PASS  15.3s
+15:20:59 [INFO] ━━ [camera_change_settings] Starting: build/examples/camera_change_settings
+15:21:10 [INFO] ── [camera_change_settings] PASS  (10.2s, rc=0)
+15:21:10 [INFO] [camera_change_settings] Waiting 1.0s before next step…
+15:21:11 [INFO] PASS  camera_change_settings         PASS  10.2s
+15:21:11 [INFO] ━━ [camera_load_settings] Starting: build/examples/camera_load_settings
+15:21:22 [INFO] ── [camera_load_settings] PASS  (11.7s, rc=0)
+15:21:22 [INFO] [camera_load_settings] Waiting 1.0s before next step…
+15:21:23 [INFO] PASS  camera_load_settings           PASS  11.7s
+15:21:23 [INFO] ━━ [camera_do_setzoom_individual] Starting: build/examples/camera_do_setzoom_individual
+15:22:18 [WARNING] [camera_do_setzoom_individual] timeout=55.0s reached — killing process.
+15:22:18 [INFO] [camera_do_setzoom_individual] Sending SIGINT (Ctrl+C equivalent)…
+15:22:18 [INFO] ── [camera_do_setzoom_individual] PASS  (55.1s, rc=0)
+15:22:18 [INFO] [camera_do_setzoom_individual] Waiting 1.0s before next step…
+15:22:19 [INFO] PASS  camera_do_setzoom_individual   PASS  55.1s
+15:22:19 [INFO] 
+15:22:19 [INFO] =======================================================
+15:22:19 [INFO]   RESULTS:  16 passed  0 failed  0 skipped  (343.1s total)
+15:22:19 [INFO] =======================================================
+15:22:19 [INFO] Report written → /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/camera_runner_20260519_151636/camera_runner_20260519_152219.html
+15:22:19 [INFO] LOG file    -> /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/camera_runner_20260519_151636/camera_runner_20260519_151636.log

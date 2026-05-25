@@ -1,0 +1,280 @@
+{
+  "started_at": "2026-05-19T08:30:51.070699+00:00",
+  "finished_at": "2026-05-19T08:32:58.787742+00:00",
+  "duration_s": 127.72,
+  "summary": {
+    "total": 16,
+    "passed": 14,
+    "failed": 1,
+    "skipped": 1
+  },
+  "steps": [
+    {
+      "name": "payload_do_object_detection",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 12.2,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "tracking",
+        "detection"
+      ],
+      "started_at": "2026-05-19T08:30:51.070709+00:00",
+      "finished_at": "2026-05-19T08:31:03.268206+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_do_object_tracking",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 15.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "tracking"
+      ],
+      "started_at": "2026-05-19T08:31:04.270787+00:00",
+      "finished_at": "2026-05-19T08:31:19.376054+00:00",
+      "output_lines": 694
+    },
+    {
+      "name": "payload_download_media_files",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.1,
+      "return_code": -2,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "media",
+        "download"
+      ],
+      "started_at": "2026-05-19T08:31:20.378290+00:00",
+      "finished_at": "2026-05-19T08:31:28.481741+00:00",
+      "output_lines": 11
+    },
+    {
+      "name": "payload_extract_tiff_file",
+      "status": "SKIP",
+      "passed": true,
+      "duration_s": 0.0,
+      "return_code": null,
+      "attempt": 1,
+      "failure_reason": "skipped",
+      "tags": [
+        "payload",
+        "thermal",
+        "tiff"
+      ],
+      "started_at": "2026-05-19T08:31:29.484087+00:00",
+      "finished_at": "2026-05-19T08:31:29.484087+00:00",
+      "output_lines": 0
+    },
+    {
+      "name": "payload_get_component_info",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "info"
+      ],
+      "started_at": "2026-05-19T08:31:29.484444+00:00",
+      "finished_at": "2026-05-19T08:31:37.590371+00:00",
+      "output_lines": 54
+    },
+    {
+      "name": "payload_get_fov_status",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "camera",
+        "fov"
+      ],
+      "started_at": "2026-05-19T08:31:38.592622+00:00",
+      "finished_at": "2026-05-19T08:31:46.698106+00:00",
+      "output_lines": 33
+    },
+    {
+      "name": "payload_get_status",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.1,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "status"
+      ],
+      "started_at": "2026-05-19T08:31:47.699975+00:00",
+      "finished_at": "2026-05-19T08:31:55.803804+00:00",
+      "output_lines": 336
+    },
+    {
+      "name": "payload_get_video_streaming",
+      "status": "FAIL",
+      "passed": false,
+      "duration_s": 3.23,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "Missing expected output: ['---> Got payload has streaming video, Check streaming URI', '---> Got streaming information: ', 'Gstreamer thread created']",
+      "tags": [
+        "payload",
+        "streaming",
+        "video"
+      ],
+      "started_at": "2026-05-19T08:31:56.806180+00:00",
+      "finished_at": "2026-05-19T08:32:00.032283+00:00",
+      "output_lines": 21
+    },
+    {
+      "name": "payload_set_camera_zoom_targetpos",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 25.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "camera",
+        "zoom"
+      ],
+      "started_at": "2026-05-19T08:32:01.042877+00:00",
+      "finished_at": "2026-05-19T08:32:26.147958+00:00",
+      "output_lines": 25
+    },
+    {
+      "name": "payload_set_gps",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "gps"
+      ],
+      "started_at": "2026-05-19T08:32:27.150278+00:00",
+      "finished_at": "2026-05-19T08:32:35.255617+00:00",
+      "output_lines": 207
+    },
+    {
+      "name": "payload_set_stream_bitrate",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 1.67,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "stream",
+        "bitrate"
+      ],
+      "started_at": "2026-05-19T08:32:36.257831+00:00",
+      "finished_at": "2026-05-19T08:32:37.930210+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_set_stream_profile",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 1.72,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "stream",
+        "profile"
+      ],
+      "started_at": "2026-05-19T08:32:38.932601+00:00",
+      "finished_at": "2026-05-19T08:32:40.655637+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_set_stream_resolution",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 1.67,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "stream",
+        "resolution"
+      ],
+      "started_at": "2026-05-19T08:32:41.658003+00:00",
+      "finished_at": "2026-05-19T08:32:43.330298+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_set_stream_resolution_2_random",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 1.62,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "stream",
+        "resolution"
+      ],
+      "started_at": "2026-05-19T08:32:44.332720+00:00",
+      "finished_at": "2026-05-19T08:32:45.954129+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_set_stream_resolution_3_random",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 1.72,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "stream",
+        "resolution"
+      ],
+      "started_at": "2026-05-19T08:32:46.956807+00:00",
+      "finished_at": "2026-05-19T08:32:48.678618+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "payload_set_system_time",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "payload",
+        "time"
+      ],
+      "started_at": "2026-05-19T08:32:49.680584+00:00",
+      "finished_at": "2026-05-19T08:32:57.785810+00:00",
+      "output_lines": 26
+    }
+  ]
+}

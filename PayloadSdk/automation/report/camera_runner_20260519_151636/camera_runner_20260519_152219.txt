@@ -1,0 +1,29 @@
+PayloadSDK Test Summary
+========================================
+Started : 2026-05-19T08:16:36.729892+00:00
+Finished: 2026-05-19T08:22:19.838702+00:00
+Duration: 343.11s
+
+Summary
+  Total  : 16
+  Passed : 16
+  Failed : 0
+  Skipped: 0
+
+Steps
+[PASS] check_connect | duration=8.1s | attempt=1 | rc=0
+[PASS] camera_eo_capture_image | duration=3.88s | attempt=1 | rc=0
+[PASS] camera_eo_record_video | duration=13.71s | attempt=1 | rc=0
+[PASS] camera_eo_set_shutter_speed | duration=20.11s | attempt=1 | rc=0
+[PASS] camera_eo_set_zoom_focus | duration=53.17s | attempt=1 | rc=0
+[PASS] camera_eo_trigger_wb_onepush | duration=5.11s | attempt=1 | rc=0
+[PASS] camera_ir_capture_image | duration=4.78s | attempt=1 | rc=0
+[PASS] camera_ir_record_video | duration=12.15s | attempt=1 | rc=0
+[PASS] camera_ir_set_palette | duration=20.23s | attempt=1 | rc=0
+[PASS] camera_ir_set_zoom | duration=41.24s | attempt=1 | rc=0
+[PASS] camera_ir_do_ffc_control | duration=26.19s | attempt=1 | rc=0
+[PASS] camera_ir_isotherm_profile | duration=25.11s | attempt=1 | rc=0
+[PASS] camera_time_lapse_photography | duration=15.31s | attempt=1 | rc=0
+[PASS] camera_change_settings | duration=10.2s | attempt=1 | rc=0
+[PASS] camera_load_settings | duration=11.7s | attempt=1 | rc=0
+[PASS] camera_do_setzoom_individual | duration=55.11s | attempt=1 | rc=0

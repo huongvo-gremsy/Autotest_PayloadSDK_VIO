@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regression Report — 2026-05-19 15:22:19</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 32px 40px; border-bottom: 1px solid #1e293b; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em; }
+  .header .meta { color: #64748b; font-size: 0.85rem; margin-top: 6px; }
+  .summary { display: flex; gap: 16px; padding: 24px 40px; flex-wrap: wrap; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 18px 24px; min-width: 140px; }
+  .card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px; }
+  .card .value { font-size: 2rem; font-weight: 700; line-height: 1; }
+  .card.total  .value { color: #94a3b8; }
+  .card.passed .value { color: #22c55e; }
+  .card.failed .value { color: #ef4444; }
+  .card.skip   .value { color: #94a3b8; }
+  .card.dur    .value { color: #818cf8; font-size: 1.4rem; }
+  .progress-wrap { padding: 0 40px 24px; }
+  .progress-bar { height: 6px; background: #1e293b; border-radius: 9999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); border-radius: 9999px; transition: width 0.4s; }
+  .progress-label { font-size: 0.78rem; color: #64748b; margin-top: 6px; }
+  .table-wrap { padding: 0 40px 40px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; table-layout: fixed; min-width: 1500px; }
+  thead tr { background: #1e293b; }
+  th { padding: 10px 14px; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: #64748b; border-bottom: 1px solid #334155; white-space: nowrap; }
+  td { padding: 12px 14px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #1e293b44; }
+  th.col-idx, td.col-idx { width: 16%; }
+  th.col-step, td.col-step { width: 38%; }
+  th.col-status, td.col-status { width: 5%; }
+  th.col-duration, td.col-duration { width: 6%; }
+  th.col-rc, td.col-rc { width: 4%; }
+  th.col-tags, td.col-tags { width: 6%; }
+  th.col-output, td.col-output { width: 35%; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; }
+  .badge-PASS { background: #14532d; color: #4ade80; }
+  .badge-FAIL { background: #450a0a; color: #f87171; }
+  .badge-SKIP { background: #1e293b; color: #64748b; }
+  .step-name { font-weight: 600; color: #f1f5f9; }
+  .reason { color: #f87171; font-size: 0.8rem; margin-top: 4px; font-family: monospace; }
+  .tags span { display: inline-block; background: #1e3a5f; color: #93c5fd; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; margin-right: 4px; }
+  .dur { color: #94a3b8; font-family: monospace; white-space: nowrap; }
+  .rc { font-family: monospace; color: #64748b; }
+  details { margin-top: 4px; }
+  summary { cursor: pointer; color: #64748b; font-size: 0.78rem; }
+  summary:hover { color: #94a3b8; }
+  .col-output summary { white-space: nowrap; }
+  .col-output pre { min-width: 100%; }
+  pre { background: #0f172a; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-top: 6px; font-size: 0.75rem; color: #94a3b8; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; max-height: 260px; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📡 PayloadSDK Regression Report</h1>
+  <div class="meta">Generated 2026-05-19 15:22:19 &nbsp;·&nbsp; Duration 343.1s</div>
+</div>
+
+<div class="summary">
+  <div class="card total"><div class="label">Total</div><div class="value">16</div></div>
+  <div class="card passed"><div class="label">Passed</div><div class="value">16</div></div>
+  <div class="card failed"><div class="label">Failed</div><div class="value">0</div></div>
+  <div class="card skip"><div class="label">Skipped</div><div class="value">0</div></div>
+  <div class="card dur"><div class="label">Duration</div><div class="value">343.1s</div></div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  <div class="progress-label">100% pass rate (16/16)</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th class="col-idx">#</th>
+  <th class="col-step">Step</th>
+  <th class="col-status">Status</th>
+  <th class="col-duration">Duration</th>
+  <th class="col-rc">RC</th>
+  <th class="col-tags">Tags</th>
+  <th class="col-output">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="rc col-idx">check_connect</td>
+  <td class="col-step">
+    <div class="step-name">check_connect</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.1s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>connect</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting ConnectPayload example...
+[8] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1113042] SDK checkPayloadConnection(): Payload connected! 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_eo_capture_image</td>
+  <td class="col-step">
+    <div class="step-name">camera_eo_capture_image</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">3.88s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>capture</span></td>
+  <td class="col-output"><details><summary>show output (40 lines)</summary><pre>Starting CaptureImage example...
+[27] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1107249] SDK checkPayloadConnection(): Payload connected! 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 2
+
+Got payload storage info: total: 238560.00 MB, used: 666.12 MB, available: 237893.88 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Video mode, change camera mode 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 1
+
+Got payload storage info: total: 238560.00 MB, used: 666.12 MB, available: 237893.88 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Video mode, change camera mode 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 0
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_eo_record_video</td>
+  <td class="col-step">
+    <div class="step-name">camera_eo_record_video</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">13.71s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>record</span></td>
+  <td class="col-output"><details><summary>show output (35 lines)</summary><pre>Starting RecordVideo example...
+[33] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1152660] SDK checkPayloadConnection(): Payload connected! 
+[EO] Forcing view source to EO...
+Got payload storage info: total: 238560.00 MB, used: 669.62 MB, available: 237890.38 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Image mode, do capture image 
+Payload is recording video in 10s, wait... 
+9 
+8 
+7 
+6 
+5 
+4 
+3 
+2 
+1 
+0 
+   ---&gt; Payload is completed record video
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_eo_set_shutter_speed</td>
+  <td class="col-step">
+    <div class="step-name">camera_eo_set_shutter_speed</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">20.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>shutter</span></td>
+  <td class="col-output"><details><summary>show output (29 lines)</summary><pre>Starting SetShutterSpeed example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1119974] SDK checkPayloadConnection(): Payload connected! 
+[EO] Forcing view source to EO...
+Shutter (C_V_SP): 1/10 (code 13)
+Shutter (C_V_SP): 1/10 (code 13)
+Shutter (C_V_SP): 1/1000 (code 27)
+Shutter (C_V_SP): 1/10 (code 13)
+Shutter (C_V_SP): 1/1000 (code 27)
+Shutter (C_V_SP): 1/10 (code 13)
+Shutter (C_V_SP): 1/1000 (code 27)
+Shutter (C_V_SP): 1/10 (code 13)
+Shutter (C_V_SP): 1/1000 (code 27)
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_eo_set_zoom_focus</td>
+  <td class="col-step">
+    <div class="step-name">camera_eo_set_zoom_focus</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">53.17s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>zoom</span><span>focus</span></td>
+  <td class="col-output"><details><summary>show output (80 lines)</summary><pre>Starting CaptureImage example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1137192] SDK checkPayloadConnection(): Payload connected! 
+Set view source to EO! 
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+Set zoom level to 1x ! 
+Zoom In 4 times! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Out 2 times! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+Start Zoom In! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Stop Zoom! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Start Zoom Out! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Stop Zoom! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 50%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 70%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 100%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 0%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Start Focus In! 
+ --&gt; Got ack, from command: 532 - result: 0.00
+Stop Focus! 
+ --&gt; Got ack, from command: 532 - result: 0.00
+Start Focus Out! 
+ --&gt; Got ack, from command: 532 - result: 0.00
+Stop Focus! 
+ --&gt; Got ack, from command: 532 - result: 0.00
+Auto Focus! 
+!--------------------! 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_eo_trigger_wb_onepush</td>
+  <td class="col-step">
+    <div class="step-name">camera_eo_trigger_wb_onepush</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">5.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>white-balance</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting Triiger WB sample example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1147142] SDK checkPayloadConnection(): Payload connected! 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_capture_image</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_capture_image</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">4.78s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>capture</span></td>
+  <td class="col-output"><details><summary>show output (41 lines)</summary><pre>Starting CaptureImage example...
+[22] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1106886] SDK checkPayloadConnection(): Payload connected! 
+[IR] Forcing view source to IR...
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 2
+
+Got payload storage info: total: 238560.00 MB, used: 673.25 MB, available: 237886.75 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Video mode, change camera mode 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 1
+
+Got payload storage info: total: 238560.00 MB, used: 673.38 MB, available: 237886.62 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Video mode, change camera mode 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+   ---&gt; Payload is completed capture image, Do next sequence 0
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_record_video</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_record_video</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">12.15s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>record</span></td>
+  <td class="col-output"><details><summary>show output (35 lines)</summary><pre>Starting RecordVideo example...
+[8] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1164951] SDK checkPayloadConnection(): Payload connected! 
+[IR] Forcing view source to IR...
+Got payload storage info: total: 238560.00 MB, used: 673.62 MB, available: 237886.38 MB 
+   ---&gt; Storage ready, check capture status 
+Got payload capture status: image_status: 0.00, video_status: 0.00 
+   ---&gt; Payload is idle, Check camera mode 
+Got camera mode: 1.00 
+   ---&gt; Payload in Video mode, change camera mode 
+Payload is recording video in 10s, wait... 
+9 
+8 
+7 
+6 
+5 
+4 
+3 
+2 
+1 
+0 
+   ---&gt; Payload is completed record video
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_set_palette</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_set_palette</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">20.23s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>palette</span></td>
+  <td class="col-output"><details><summary>show output (27 lines)</summary><pre>[4] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1166605] SDK checkPayloadConnection(): Payload connected! 
+[IR] Forcing view source to IR...
+Starting set palete example...
+ --&gt; SET:      F1: WhiteHot         |       G1: WhiteHot
+ --&gt; SET:      F1: BlackHot         |       G1: Fulgurite
+ --&gt; SET:      F1: Rainbow          |       G1: IronRed
+ --&gt; SET:      F1: RainbowHC        |       G1: HotIron
+ --&gt; SET:      F1: Ironbow          |       G1: Medical
+ --&gt; SET:      F1: Lava             |       G1: Arctic
+ --&gt; SET:      F1: Arctic           |       G1: Rainbow1
+ --&gt; SET:      F1: Globow           |       G1: Rainbow2
+ --&gt; SET:      F1: Gradedfire       |       G1: Tint
+ --&gt; SET:      F1: Hottest          |       G1: BlackHot
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_set_zoom</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_set_zoom</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">41.24s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>zoom</span></td>
+  <td class="col-output"><details><summary>show output (67 lines)</summary><pre>Starting CaptureImage example...
+[22] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+ --&gt; Got ack, from command: 511 - result: 0.00
+[1174755] SDK checkPayloadConnection(): Payload connected! 
+Set view source to IR! 
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+ --&gt; Got ack, from command: 511 - result: 0.00
+Set zoom level to 1x ! 
+Zoom In 4 times! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Out 2 times! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+ --&gt; Got ack, from command: 531 - result: 0.00
+Start Zoom In! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Stop Zoom! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Start Zoom Out! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Stop Zoom! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 50%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 70%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 100%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+Zoom Range 0%! 
+ --&gt; Got ack, from command: 531 - result: 0.00
+!--------------------! 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_do_ffc_control</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_do_ffc_control</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">26.19s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>ffc</span></td>
+  <td class="col-output"><details><summary>show output (21 lines)</summary><pre>Starting IR FFC Control example...
+[23] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1176157] SDK checkPayloadConnection(): Payload connected! 
+[IR] Forcing view source to IR...
+[1176171] SDK main(): Change FFC to Auto, waiting for 5secs.
+[6176310] SDK main(): Change FFC to Manual, waiting for 5secs.
+[11176446] SDK main(): Trigger FFC, 1
+[14176530] SDK main(): Trigger FFC, 2
+[17176612] SDK main(): Trigger FFC, 3
+[20176697] SDK main(): Trigger FFC, 4
+[23176863] SDK main(): Trigger FFC, 5
+[26176952] SDK main(): Done. Exit...</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_ir_isotherm_profile</td>
+  <td class="col-step">
+    <div class="step-name">camera_ir_isotherm_profile</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">25.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>ir</span><span>isotherm</span></td>
+  <td class="col-output"><details><summary>show output (84 lines)</summary><pre>Starting IR Isotherm Profile example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1134393] SDK checkPayloadConnection(): Payload connected! 
+Enable the isotherm 
+Disable all isotherm region to clear the previous settings 
+Set the IR gain to High 
+Set the Unit to Celsius 
+Apply the settings for region 1 
+Now the region 1 was configured for detecting the human&#x27;s body temperature or any object has the temperature from 35 to 40 in Celsius degrees. 
+Done. Exit 
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+Change profile to Human Detect 
+Enable the isotherm 
+Disable all isotherm region to clear the previous settings 
+Set the IR gain to High 
+Set the Unit to Celsius 
+Apply the settings for region 1 
+Now the region 1 was configured for detecting the fires or any object has the temperature from 100 to 140 in Celsius degrees. 
+Done. Exit 
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+Change profile to Fires Detect 
+Enable the isotherm 
+Disable all isotherm region to clear the previous settings 
+Set the IR gain to High 
+Set the Unit to Celsius 
+Apply the settings for region 1 
+Now the region 1 was configured for detecting the human&#x27;s body temperature or any object has the temperature from 35 to 40 in Celsius degrees. 
+Done. Exit 
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 0.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+[Status] Extended ACK received. The result is: 2.00
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_time_lapse_photography</td>
+  <td class="col-step">
+    <div class="step-name">camera_time_lapse_photography</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">15.31s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (24 lines)</summary><pre>Starting CaptureImage example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1162089] SDK checkPayloadConnection(): Payload connected! 
+Got PAYLOAD_ACK for command 530.00 with status 0.00, progress: 0.00
+   ---&gt; Payload in Image mode, do capture image 
+Payload is capturing image elapsed time between 3.0s, within 12s, wait... 
+Captured ... 
+Captured ... 
+Captured ... 
+Captured ... 
+   ---&gt; Payload is completed capture image 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_change_settings</td>
+  <td class="col-step">
+    <div class="step-name">camera_change_settings</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">10.2s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (108 lines)</summary><pre>Starting SetPayloadSettings example...
+[27] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1142265] SDK checkPayloadConnection(): Payload connected! 
+------------------------&gt; Init values 
+ --&gt; Param_id: CAM_MODE, value: 1.00
+ --&gt; Param_id: C_SOURCE, value: 2.00
+ --&gt; Param_id: C_T_G, value: 0.00
+ --&gt; Param_id: C_T_ISO_M, value: 1.00
+ --&gt; Param_id: C_T_ISO_THR, value: 22.00
+ --&gt; Param_id: C_T_PALETTE, value: 8.00
+ --&gt; Param_id: C_T_SPOT_M, value: 1.00
+ --&gt; Param_id: C_T_SPOT_S, value: 16.00
+ --&gt; Param_id: C_T_SPOT_U, value: 2.00
+ --&gt; Param_id: C_T_ZOOM, value: 0.00
+ --&gt; Param_id: C_V_AE, value: 10.00
+ --&gt; Param_id: C_V_BGAIN, value: 128.00
+ --&gt; Param_id: C_V_BrP, value: 0.00
+ --&gt; Param_id: C_V_DEFOG, value: 3.00
+ --&gt; Param_id: C_V_DEFOG_LV, value: 0.00
+ --&gt; Param_id: C_V_FA, value: 0.00
+ --&gt; Param_id: C_V_FLIP, value: 3.00
+ --&gt; Param_id: C_V_FM, value: 2.00
+ --&gt; Param_id: C_V_FREEZE, value: 3.00
+ --&gt; Param_id: C_V_FV, value: 6.00
+ --&gt; Param_id: C_V_F_SPD, value: 0.00
+ --&gt; Param_id: C_V_GAIN, value: 13.00
+ --&gt; Param_id: C_V_HS, value: 3.00
+ --&gt; Param_id: C_V_ICR, value: 3.00
+ --&gt; Param_id: C_V_ICR_MAN, value: 3.00
+ --&gt; Param_id: C_V_ICR_THR, value: 128.00
+ --&gt; Param_id: C_V_IrP, value: 25.00
+ --&gt; Param_id: C_V_MinSP, value: 18.00
+ --&gt; Param_id: C_V_REC, value: 2.00
+ --&gt; Param_id: C_V_RGAIN, value: 128.00
+ --&gt; Param_id: C_V_SP, value: 13.00
+ --&gt; Param_id: C_V_WB, value: 0.00
+ --&gt; Param_id: C_V_ZM_CB_LV, value: 21.00
+ --&gt; Param_id: C_V_ZM_MODE, value: 0.00
+ --&gt; Param_id: C_V_ZM_SR_LV, value: 0.00
+ --&gt; Param_id: C_V_Z_SPD, value: 5.00
+ --&gt; Param_id: GB_FW_FLAG, value: 0.00
+ --&gt; Param_id: GB_MODE, value: 0.00
+ --&gt; Param_id: LRF_MODE, value: 3.00
+ --&gt; Param_id: OSD_MODE, value: 2.00
+ --&gt; Param_id: RC_MODE, value: 1.00
+ --&gt; Param_id: SETTING_TARGET, value: 0.00
+ --&gt; Param_id: STORAGE_TYPE, value: 1.00
+ --&gt; Param_id: TRACK_MODE, value: 0.00
+
+Change some params
+------------------------&gt; Changed values 
+ --&gt; Param_id: CAM_MODE, value: 1.00
+ --&gt; Param_id: C_SOURCE, value: 2.00
+ --&gt; Param_id: C_T_G, value: 0.00
+ --&gt; Param_id: C_T_ISO_M, value: 1.00
+ --&gt; Param_id: C_T_ISO_THR, value: 22.00
+ --&gt; Param_id: C_T_PALETTE, value: 8.00
+ --&gt; Param_id: C_T_SPOT_M, value: 1.00
+ --&gt; Param_id: C_T_SPOT_S, value: 16.00
+ --&gt; Param_id: C_T_SPOT_U, value: 2.00
+ --&gt; Param_id: C_T_ZOOM, value: 0.00
+ --&gt; Param_id: C_V_AE, value: 10.00
+ --&gt; Param_id: C_V_BGAIN, value: 128.00
+ --&gt; Param_id: C_V_BrP, value: 0.00
+ --&gt; Param_id: C_V_DEFOG, value: 3.00
+ --&gt; Param_id: C_V_DEFOG_LV, value: 0.00
+ --&gt; Param_id: C_V_FA, value: 0.00
+ --&gt; Param_id: C_V_FLIP, value: 3.00
+ --&gt; Param_id: C_V_FM, value: 2.00
+ --&gt; Param_id: C_V_FREEZE, value: 3.00
+ --&gt; Param_id: C_V_FV, value: 6.00
+ --&gt; Param_id: C_V_F_SPD, value: 0.00
+ --&gt; Param_id: C_V_GAIN, value: 13.00
+ --&gt; Param_id: C_V_HS, value: 3.00
+ --&gt; Param_id: C_V_ICR, value: 3.00
+ --&gt; Param_id: C_V_ICR_MAN, value: 3.00
+ --&gt; Param_id: C_V_ICR_THR, value: 128.00
+ --&gt; Param_id: C_V_IrP, value: 25.00
+ --&gt; Param_id: C_V_MinSP, value: 18.00
+ --&gt; Param_id: C_V_REC, value: 2.00
+ --&gt; Param_id: C_V_RGAIN, value: 128.00
+ --&gt; Param_id: C_V_SP, value: 13.00
+ --&gt; Param_id: C_V_WB, value: 0.00
+ --&gt; Param_id: C_V_ZM_CB_LV, value: 21.00
+ --&gt; Param_id: C_V_ZM_MODE, value: 2.00
+ --&gt; Param_id: C_V_ZM_SR_LV, value: 0.00
+ --&gt; Param_id: C_V_Z_SPD, value: 5.00
+ --&gt; Param_id: GB_FW_FLAG, value: 0.00
+ --&gt; Param_id: GB_MODE, value: 0.00
+ --&gt; Param_id: LRF_MODE, value: 3.00
+ --&gt; Param_id: OSD_MODE, value: 2.00
+ --&gt; Param_id: RC_MODE, value: 1.00
+ --&gt; Param_id: SETTING_TARGET, value: 0.00
+ --&gt; Param_id: STORAGE_TYPE, value: 1.00
+ --&gt; Param_id: TRACK_MODE, value: 0.00
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_load_settings</td>
+  <td class="col-step">
+    <div class="step-name">camera_load_settings</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">11.7s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (60 lines)</summary><pre>Starting LoadPayloadSettings example...
+[23] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1125127] SDK checkPayloadConnection(): Payload connected! 
+ --&gt; Param_id: CAM_MODE, value: 1.00
+ --&gt; Param_id: C_SOURCE, value: 2.00
+ --&gt; Param_id: C_T_G, value: 0.00
+ --&gt; Param_id: C_T_ISO_M, value: 1.00
+ --&gt; Param_id: C_T_ISO_THR, value: 22.00
+ --&gt; Param_id: C_T_PALETTE, value: 8.00
+ --&gt; Param_id: C_T_SPOT_M, value: 1.00
+ --&gt; Param_id: C_T_SPOT_S, value: 16.00
+ --&gt; Param_id: C_T_SPOT_U, value: 2.00
+ --&gt; Param_id: C_T_ZOOM, value: 0.00
+ --&gt; Param_id: C_V_AE, value: 10.00
+ --&gt; Param_id: C_V_BGAIN, value: 128.00
+ --&gt; Param_id: C_V_BrP, value: 0.00
+ --&gt; Param_id: C_V_DEFOG, value: 3.00
+ --&gt; Param_id: C_V_DEFOG_LV, value: 0.00
+ --&gt; Param_id: C_V_FA, value: 0.00
+ --&gt; Param_id: C_V_FLIP, value: 3.00
+ --&gt; Param_id: C_V_FM, value: 2.00
+ --&gt; Param_id: C_V_FREEZE, value: 3.00
+ --&gt; Param_id: C_V_FV, value: 6.00
+ --&gt; Param_id: C_V_F_SPD, value: 0.00
+ --&gt; Param_id: C_V_GAIN, value: 13.00
+ --&gt; Param_id: C_V_HS, value: 3.00
+ --&gt; Param_id: C_V_ICR, value: 3.00
+ --&gt; Param_id: C_V_ICR_MAN, value: 3.00
+ --&gt; Param_id: C_V_ICR_THR, value: 128.00
+ --&gt; Param_id: C_V_IrP, value: 25.00
+ --&gt; Param_id: C_V_MinSP, value: 18.00
+ --&gt; Param_id: C_V_REC, value: 2.00
+ --&gt; Param_id: C_V_RGAIN, value: 128.00
+ --&gt; Param_id: C_V_SP, value: 13.00
+ --&gt; Param_id: C_V_WB, value: 0.00
+ --&gt; Param_id: C_V_ZM_CB_LV, value: 21.00
+ --&gt; Param_id: C_V_ZM_MODE, value: 2.00
+ --&gt; Param_id: C_V_ZM_SR_LV, value: 0.00
+ --&gt; Param_id: C_V_Z_SPD, value: 5.00
+ --&gt; Param_id: GB_FW_FLAG, value: 0.00
+ --&gt; Param_id: GB_MODE, value: 0.00
+ --&gt; Param_id: LRF_MODE, value: 3.00
+ --&gt; Param_id: OSD_MODE, value: 2.00
+ --&gt; Param_id: RC_MODE, value: 1.00
+ --&gt; Param_id: SETTING_TARGET, value: 0.00
+ --&gt; Param_id: STORAGE_TYPE, value: 1.00
+ --&gt; Param_id: TRACK_MODE, value: 0.00
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">camera_do_setzoom_individual</td>
+  <td class="col-step">
+    <div class="step-name">camera_do_setzoom_individual</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">55.11s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>camera</span><span>eo</span><span>zoom</span></td>
+  <td class="col-output"><details><summary>show output (189 lines)</summary><pre>[Init] Starting payload zoom control example...
+[39] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+[Init] Waiting for payload handshake...
+[1102327] SDK checkPayloadConnection(): Payload connected! 
+
+[EO] Switching zoom mode to Super Resolution...
+[Status] Command 511 acknowledged with result 0.00
+[Status] EO zoom level reported at 1.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] IR zoom level reported at 1.00
+[Status] Extended ACK received: 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] Command 511 acknowledged with result 0.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[EO] Forcing view source to EO over IR composite...
+[EO] Setting Super Resolution zoom to 1x.
+[Status] Extended ACK received: 0.00
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[EO] Stepping Super Resolution zoom up to 4x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 2.90
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 4.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 4.00
+[Status] IR zoom level reported at 1.00
+[EO] Driving Super Resolution zoom to 30x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 4.16
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 14.02
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 30.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 30.00
+[Status] IR zoom level reported at 1.00
+[EO] Switching to Combine zoom mode for extended range...
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 33.33
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 56.20
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[EO] Combine zoom: resetting to 1x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 219.60
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 50.43
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 18.82
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 7.78
+[Status] IR zoom level reported at 1.00
+[EO] Combine zoom: jumping to 40x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 3.72
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 11.08
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 31.41
+[Status] IR zoom level reported at 1.00
+[EO] Combine zoom: pushing to 240x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 40.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 105.79
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[IR] Switching view source to IR over EO composite...
+[IR] Setting zoom to 1x.
+[Status] Extended ACK received: 0.00
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 1.00
+[IR] Stepping zoom to 4x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 4.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 4.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 4.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 4.00
+[IR] Increasing zoom to 8x for maximum magnification.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 4.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 240.00
+[Status] IR zoom level reported at 8.00
+
+[EO] Switching zoom mode to Super Resolution...
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 20.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 20.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 20.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 20.00
+[Status] IR zoom level reported at 8.00
+[EO] Forcing view source to EO over IR composite...
+[EO] Setting Super Resolution zoom to 1x.
+[Status] Extended ACK received: 0.00
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 18.36
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 6.42
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 2.44
+[Status] IR zoom level reported at 8.00
+[EO] Stepping Super Resolution zoom up to 4x.
+[Status] Extended ACK received: 0.00
+[Status] EO zoom level reported at 1.00
+[Status] IR zoom level reported at 8.00
+[Status] EO zoom level reported at 3.00
+[Status] IR zoom level reported at 8.00
+
+[Exit] Received interrupt, shutting down cleanly...
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>

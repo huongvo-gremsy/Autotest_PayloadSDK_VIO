@@ -1,0 +1,21 @@
+PayloadSDK Test Summary
+========================================
+Started : 2026-05-19T08:22:55.605068+00:00
+Finished: 2026-05-19T08:25:33.517795+00:00
+Duration: 157.91s
+
+Summary
+  Total  : 8
+  Passed : 7
+  Failed : 1
+  Skipped: 0
+
+Steps
+[PASS] check_connect | duration=8.1s | attempt=1 | rc=0
+[PASS] gimbal_load_settings_before | duration=2.73s | attempt=1 | rc=0
+[PASS] gimbal_change_settings | duration=7.74s | attempt=1 | rc=0
+[PASS] gimbal_load_settings_after | duration=2.77s | attempt=1 | rc=0
+[FAIL] gimbal_move_angle | duration=6.39s | attempt=1 | rc=0 | reason=Missing expected output: ['Mount Orient : Pich: -10.00 - Roll: -0.00 - Yaw: 15.00']
+[PASS] gimbal_move_speed | duration=11.9s | attempt=1 | rc=0
+[PASS] gimbal_set_mode | duration=26.24s | attempt=1 | rc=0
+[PASS] gimbal_control_example | duration=83.03s | attempt=1 | rc=0

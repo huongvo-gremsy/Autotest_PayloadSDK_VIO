@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regression Report — 2026-05-19 15:25:33</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 32px 40px; border-bottom: 1px solid #1e293b; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.02em; }
+  .header .meta { color: #64748b; font-size: 0.85rem; margin-top: 6px; }
+  .summary { display: flex; gap: 16px; padding: 24px 40px; flex-wrap: wrap; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 18px 24px; min-width: 140px; }
+  .card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px; }
+  .card .value { font-size: 2rem; font-weight: 700; line-height: 1; }
+  .card.total  .value { color: #94a3b8; }
+  .card.passed .value { color: #22c55e; }
+  .card.failed .value { color: #ef4444; }
+  .card.skip   .value { color: #94a3b8; }
+  .card.dur    .value { color: #818cf8; font-size: 1.4rem; }
+  .progress-wrap { padding: 0 40px 24px; }
+  .progress-bar { height: 6px; background: #1e293b; border-radius: 9999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); border-radius: 9999px; transition: width 0.4s; }
+  .progress-label { font-size: 0.78rem; color: #64748b; margin-top: 6px; }
+  .table-wrap { padding: 0 40px 40px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; table-layout: fixed; min-width: 1500px; }
+  thead tr { background: #1e293b; }
+  th { padding: 10px 14px; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: #64748b; border-bottom: 1px solid #334155; white-space: nowrap; }
+  td { padding: 12px 14px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #1e293b44; }
+  th.col-idx, td.col-idx { width: 16%; }
+  th.col-step, td.col-step { width: 38%; }
+  th.col-status, td.col-status { width: 5%; }
+  th.col-duration, td.col-duration { width: 6%; }
+  th.col-rc, td.col-rc { width: 4%; }
+  th.col-tags, td.col-tags { width: 6%; }
+  th.col-output, td.col-output { width: 35%; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; }
+  .badge-PASS { background: #14532d; color: #4ade80; }
+  .badge-FAIL { background: #450a0a; color: #f87171; }
+  .badge-SKIP { background: #1e293b; color: #64748b; }
+  .step-name { font-weight: 600; color: #f1f5f9; }
+  .reason { color: #f87171; font-size: 0.8rem; margin-top: 4px; font-family: monospace; }
+  .tags span { display: inline-block; background: #1e3a5f; color: #93c5fd; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; margin-right: 4px; }
+  .dur { color: #94a3b8; font-family: monospace; white-space: nowrap; }
+  .rc { font-family: monospace; color: #64748b; }
+  details { margin-top: 4px; }
+  summary { cursor: pointer; color: #64748b; font-size: 0.78rem; }
+  summary:hover { color: #94a3b8; }
+  .col-output summary { white-space: nowrap; }
+  .col-output pre { min-width: 100%; }
+  pre { background: #0f172a; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-top: 6px; font-size: 0.75rem; color: #94a3b8; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; max-height: 260px; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📡 PayloadSDK Regression Report</h1>
+  <div class="meta">Generated 2026-05-19 15:25:33 &nbsp;·&nbsp; Duration 157.9s</div>
+</div>
+
+<div class="summary">
+  <div class="card total"><div class="label">Total</div><div class="value">8</div></div>
+  <div class="card passed"><div class="label">Passed</div><div class="value">7</div></div>
+  <div class="card failed"><div class="label">Failed</div><div class="value">1</div></div>
+  <div class="card skip"><div class="label">Skipped</div><div class="value">0</div></div>
+  <div class="card dur"><div class="label">Duration</div><div class="value">157.9s</div></div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+  <div class="progress-label">88% pass rate (7/8)</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th class="col-idx">#</th>
+  <th class="col-step">Step</th>
+  <th class="col-status">Status</th>
+  <th class="col-duration">Duration</th>
+  <th class="col-rc">RC</th>
+  <th class="col-tags">Tags</th>
+  <th class="col-output">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="rc col-idx">check_connect</td>
+  <td class="col-step">
+    <div class="step-name">check_connect</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">8.1s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>connect</span></td>
+  <td class="col-output"><details><summary>show output (19 lines)</summary><pre>Starting ConnectPayload example...
+[7] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1142188] SDK checkPayloadConnection(): Payload connected! 
+
+TERMINATING AT USER REQUEST 
+
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_load_settings</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_load_settings_before</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">2.73s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (45 lines)</summary><pre>Starting LoadPayloadGimbalSettings example...
+[23] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1130867] SDK checkPayloadConnection(): Payload connected! 
+[1274071] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1774617] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1838127] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1858329] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: SRL_NUMBER, index: 1, value: 140
+[1877915] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_TILT, index: 2, value: 80
+[1898321] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_CHAN_STILT, index: 3, value: 2
+[1918088] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_ROLL, index: 4, value: 141
+[1938932] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_PAN, index: 5, value: 136
+[1959168] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FILTER_OUT, index: 6, value: 1
+[1978526] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_CHAN_SPAN, index: 7, value: 2
+[1999434] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_TILT, index: 8, value: 82
+[2020061] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_ROLL, index: 9, value: 148
+[2039590] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_PAN, index: 10, value: 146
+[2059124] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_SP_TILT, index: 11, value: 0
+[2084744] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GMB_HOME_PAN, index: 12, value: 0
+[2100124] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_SP_PAN, index: 13, value: 0
+[2120823] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_LPF_TILT, index: 14, value: 50
+[2140524] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: MAPPING_ANGLE, index: 15, value: 90
+[2165332] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_LPF_PAN, index: 16, value: 30
+[2179636] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GYRO_TRUST, index: 17, value: 220
+[2203010] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_TILT, index: 18, value: 10
+[2219989] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_ROLL, index: 19, value: 10
+[2240864] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_PAN, index: 20, value: 10
+[2261015] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_TYPE, index: 21, value: 1
+[2274466] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[2280568] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GYRO_LPF, index: 22, value: 5
+[2301141] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LIM_MIN_TILT, index: 23, value: -40
+[2320827] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LIM_MAX_TILT, index: 24, value: 120
+[2342955] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LIM_MIN_ROLL, index: 25, value: -40
+[2361847] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LIM_MAX_ROLL, index: 26, value: 40
+[2381442] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LPF_TILT, index: 27, value: 10
+[2401755] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LPF_ROLL, index: 28, value: 30
+[2422496] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_LPF_PAN, index: 29, value: 10</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_change_settings</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_change_settings</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">7.74s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (43 lines)</summary><pre>Starting SetPayloadGimbalSettings example...
+
+This sample will: 
+ 1. Download the current value of param STIFF_TILT 
+ 2. Change the value of param STIFF_TILT to 50
+ 3. Download the value of param STIFF_TILT to verify the changed
+ 4. Change the value for STIFF_TILT back to the original
+ 5. Download the value of param STIFF_TILT to verify the changed
+
+[40] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1126160] SDK checkPayloadConnection(): Payload connected! 
+[1544464] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[1720479] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 2, id: STIFF_TILT, value: 80
+[2044136] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[2542343] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[2645546] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 2, id: STIFF_TILT, value: 50
+[3043505] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[3542720] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[3648446] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 2, id: STIFF_TILT, value: 50
+[4043438] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[4543600] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[4653864] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 2, id: STIFF_TILT, value: 80
+[5042504] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[5543350] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[5659376] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 2, id: STIFF_TILT, value: 80
+[6042664] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[6543824] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+Done. Exit
+[7050558] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+[7545615] SDK onPayloadParamChanged(): --&gt; Gimbal_param: index: 0, id: VERSION_X, value: 7
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_load_settings</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_load_settings_after</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">2.77s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>settings</span></td>
+  <td class="col-output"><details><summary>show output (38 lines)</summary><pre>Starting LoadPayloadGimbalSettings example...
+[32] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1115295] SDK checkPayloadConnection(): Payload connected! 
+[1304245] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1804275] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1879645] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[1901454] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: SRL_NUMBER, index: 1, value: 140
+[1920156] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_TILT, index: 2, value: 80
+[1940880] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_CHAN_STILT, index: 3, value: 2
+[1962394] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_ROLL, index: 4, value: 141
+[1981737] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: STIFF_PAN, index: 5, value: 136
+[2000509] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FILTER_OUT, index: 6, value: 1
+[2021092] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_CHAN_SPAN, index: 7, value: 2
+[2041538] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_TILT, index: 8, value: 82
+[2061448] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_ROLL, index: 9, value: 148
+[2081922] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: PWR_PAN, index: 10, value: 146
+[2102707] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_SP_TILT, index: 11, value: 0
+[2122706] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GMB_HOME_PAN, index: 12, value: 0
+[2142073] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_SP_PAN, index: 13, value: 0
+[2162951] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_LPF_TILT, index: 14, value: 50
+[2182386] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: MAPPING_ANGLE, index: 15, value: 90
+[2202319] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: FLW_LPF_PAN, index: 16, value: 30
+[2222320] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GYRO_TRUST, index: 17, value: 220
+[2243807] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_TILT, index: 18, value: 10
+[2262169] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_ROLL, index: 19, value: 10
+[2282507] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_DZONE_PAN, index: 20, value: 10
+[2303023] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: RC_TYPE, index: 21, value: 1
+[2307147] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: VERSION_X, index: 0, value: 7
+[2322544] SDK onPayloadParamChanged(): --&gt; Gimbal_param: id: GYRO_LPF, index: 22, value: 5</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_move_angle</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_move_angle</div>
+    <div class="reason">✗ Missing expected output: [&#x27;Mount Orient : Pich: -10.00 - Roll: -0.00 - Yaw: 15.00&#x27;]</div>
+    
+  </td>
+  <td class="col-status"><span class="badge badge-FAIL">FAIL</span></td>
+  <td class="dur col-duration">6.39s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>motion</span></td>
+  <td class="col-output"><details><summary>show output (68 lines)</summary><pre>Starting Set gimbal mode example...
+[58] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1141078] SDK checkPayloadConnection(): Payload connected! 
+Set gimbal to FOLLOW mode 
+Move gimbal pitch to -10.00 deg, yaw to 15.00 deg
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.46
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.44
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.39
+CLOSE PORT
+
+CLOSE THREADS 
+Mount Orient : Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_move_speed</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_move_speed</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">11.9s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>motion</span></td>
+  <td class="col-output"><details><summary>show output (127 lines)</summary><pre>Starting Set gimbal mode example...
+[28] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1103940] SDK checkPayloadConnection(): Payload connected! 
+Pich: -0.03 - Roll: -0.00 - Yaw: 4.42
+Set gimbal RC mode 
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.28
+Move gimbal yaw to the right 20 deg/s, delay in 5secs 
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.28
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.28
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.28
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.28
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.22
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.13
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.03
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.94
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.84
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.75
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.65
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.56
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.46
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.37
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.27
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.18
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.08
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.99
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.89
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.80
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.70
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.61
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.51
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.42
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.32
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.23
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.13
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.04
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.94
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.85
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.75
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.66
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.57
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.47
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.38
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.28
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.19
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.09
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.00
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.90
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.81
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.71
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.62
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.52
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.43
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.34
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.24
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.15
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.05
+Move gimbal yaw to the left 20 deg/s, delay in 5secs 
+Pich: -0.03 - Roll: -0.00 - Yaw: -2.96
+Pich: -0.03 - Roll: -0.00 - Yaw: -2.97
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.07
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.16
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.26
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.35
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.45
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.54
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.64
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.73
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.82
+Pich: -0.03 - Roll: -0.00 - Yaw: -3.92
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.01
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.11
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.20
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.30
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.39
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.49
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.58
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.68
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.77
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.86
+Pich: -0.03 - Roll: -0.00 - Yaw: -4.96
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.06
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.15
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.24
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.34
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.43
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.53
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.62
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.72
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.81
+Pich: -0.03 - Roll: -0.00 - Yaw: -5.91
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.00
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.10
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.19
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.29
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.38
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.48
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.57
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.67
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.76
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.86
+Pich: -0.03 - Roll: -0.00 - Yaw: -6.95
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.04
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.14
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.23
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.33
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.42
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.52
+Keep gimbal stop, delay in 5secs 
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.61
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.62
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.62
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.62
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.62
+CLOSE PORT
+
+CLOSE THREADS 
+Pich: -0.03 - Roll: -0.00 - Yaw: -7.62
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_set_mode</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_set_mode</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">26.24s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>mode</span></td>
+  <td class="col-output"><details><summary>show output (21 lines)</summary><pre>Starting Set gimbal mode example...
+[6] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1163422] SDK checkPayloadConnection(): Payload connected! 
+Gimbal set mode LOCK, delay in 5 secs 
+Gimbal set mode FOLLOW, delay in 5 secs 
+Gimbal set mode MAPPING, delay in 5 secs 
+Gimbal set mode OFF, delay in 5 secs 
+Gimbal set mode RESET, delay in 5 secs 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+<tr>
+  <td class="rc col-idx">gimbal_control_example</td>
+  <td class="col-step">
+    <div class="step-name">gimbal_control_example</div>
+    
+    
+  </td>
+  <td class="col-status"><span class="badge badge-PASS">PASS</span></td>
+  <td class="dur col-duration">83.03s</td>
+  <td class="rc col-rc">0</td>
+  <td class="tags col-tags"><span>gimbal</span><span>mode</span><span>control</span></td>
+  <td class="col-output"><details><summary>show output (43 lines)</summary><pre>Starting Set gimbal mode example...
+[23] SDK PayloadSdkInterface(): Starting Gremsy PayloadSdk 3.0.0_build.04022025
+[32m start : 239 	 Set UDP_Port as UDP_CLIENT
+[0m
+START READ THREAD 
+CHECK FOR MESSAGES 
+Found 
+START WRITE THREAD 
+Thread created
+
+Waiting for payload signal! 
+[1105712] SDK checkPayloadConnection(): Payload connected! 
+Gimbal set mode FOLLOW, delay in 3 secs 
+Move gimbal angular velocity: pitch = -20 deg/s, yaw = 50 deg/s, delay in 3 secs 
+Gimbal set re-center YAW ------ 
+Gimbal set re-center PITCH ------ 
+Move gimbal angular position: pitch = -40 deg, yaw = 90 deg, delay in 3 secs 
+Gimbal set re-center PITCH ------ 
+Gimbal set re-center YAW ------ 
+Delay in 3 secs before changing to LOCK MODE
+Gimbal set mode LOCK, delay in 3 secs 
+Move gimbal angular velocity: pitch = 20 deg/s, yaw = -50 deg/s, delay in 3 secs 
+Gimbal set re-center PITCH ------ 
+Gimbal set re-center YAW ------ 
+Move gimbal angular position: pitch = 40 deg, yaw = -90 deg, delay in 3 secs 
+Gimbal set re-center PITCH ------ 
+Gimbal set re-center YAW ------ 
+Delay in 3 secs before changing to FOLLOW MODE
+Gimbal set mode FOLLOW, delay in 3 secs 
+Move gimbal angular velocity: pitch = -20 deg/s, yaw = 50 deg/s, delay in 3 secs 
+Gimbal set re-center YAW ------ 
+Gimbal set re-center PITCH ------ 
+Move gimbal angular position: pitch = -40 deg, yaw = 90 deg, delay in 3 secs 
+Gimbal set re-center PITCH ------ 
+Gimbal set re-center YAW ------ 
+Delay in 3 secs before changing to MAPPING MODE
+Gimbal set mode MAPPING, delay in 5 secs 
+Gimbal set mode RESET, delay in 5 secs 
+Gimbal set mode OFF, delay in 5 secs 
+CLOSE PORT
+
+CLOSE THREADS 
+</pre></details></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
