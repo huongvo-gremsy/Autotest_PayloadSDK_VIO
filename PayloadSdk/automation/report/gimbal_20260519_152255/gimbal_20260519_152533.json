@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-05-19T08:22:55.605068+00:00",
+  "finished_at": "2026-05-19T08:25:33.517795+00:00",
+  "duration_s": 157.91,
+  "summary": {
+    "total": 8,
+    "passed": 7,
+    "failed": 1,
+    "skipped": 0
+  },
+  "steps": [
+    {
+      "name": "check_connect",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.1,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "connect"
+      ],
+      "started_at": "2026-05-19T08:22:55.605075+00:00",
+      "finished_at": "2026-05-19T08:23:03.707511+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "gimbal_load_settings_before",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 2.73,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:23:05.710701+00:00",
+      "finished_at": "2026-05-19T08:23:08.439046+00:00",
+      "output_lines": 45
+    },
+    {
+      "name": "gimbal_change_settings",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 7.74,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:23:09.440711+00:00",
+      "finished_at": "2026-05-19T08:23:17.178765+00:00",
+      "output_lines": 43
+    },
+    {
+      "name": "gimbal_load_settings_after",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 2.77,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:23:18.181328+00:00",
+      "finished_at": "2026-05-19T08:23:20.953816+00:00",
+      "output_lines": 38
+    },
+    {
+      "name": "gimbal_move_angle",
+      "status": "FAIL",
+      "passed": false,
+      "duration_s": 6.39,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "Missing expected output: ['Mount Orient : Pich: -10.00 - Roll: -0.00 - Yaw: 15.00']",
+      "tags": [
+        "gimbal",
+        "motion"
+      ],
+      "started_at": "2026-05-19T08:23:21.956216+00:00",
+      "finished_at": "2026-05-19T08:23:28.341296+00:00",
+      "output_lines": 68
+    },
+    {
+      "name": "gimbal_move_speed",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 11.9,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "motion"
+      ],
+      "started_at": "2026-05-19T08:23:29.343845+00:00",
+      "finished_at": "2026-05-19T08:23:41.246238+00:00",
+      "output_lines": 127
+    },
+    {
+      "name": "gimbal_set_mode",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 26.24,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "mode"
+      ],
+      "started_at": "2026-05-19T08:23:42.248489+00:00",
+      "finished_at": "2026-05-19T08:24:08.484448+00:00",
+      "output_lines": 21
+    },
+    {
+      "name": "gimbal_control_example",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 83.03,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "gimbal",
+        "mode",
+        "control"
+      ],
+      "started_at": "2026-05-19T08:24:09.486366+00:00",
+      "finished_at": "2026-05-19T08:25:32.515457+00:00",
+      "output_lines": 43
+    }
+  ]
+}

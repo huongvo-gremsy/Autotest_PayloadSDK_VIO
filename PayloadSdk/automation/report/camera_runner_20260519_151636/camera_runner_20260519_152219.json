@@ -1,0 +1,286 @@
+{
+  "started_at": "2026-05-19T08:16:36.729892+00:00",
+  "finished_at": "2026-05-19T08:22:19.838702+00:00",
+  "duration_s": 343.11,
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0
+  },
+  "steps": [
+    {
+      "name": "check_connect",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 8.1,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "connect"
+      ],
+      "started_at": "2026-05-19T08:16:36.729901+00:00",
+      "finished_at": "2026-05-19T08:16:44.832401+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "camera_eo_capture_image",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 3.88,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "capture"
+      ],
+      "started_at": "2026-05-19T08:16:46.835733+00:00",
+      "finished_at": "2026-05-19T08:16:50.717137+00:00",
+      "output_lines": 40
+    },
+    {
+      "name": "camera_eo_record_video",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 13.71,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "record"
+      ],
+      "started_at": "2026-05-19T08:16:51.719726+00:00",
+      "finished_at": "2026-05-19T08:17:05.430721+00:00",
+      "output_lines": 35
+    },
+    {
+      "name": "camera_eo_set_shutter_speed",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 20.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "shutter"
+      ],
+      "started_at": "2026-05-19T08:17:06.432685+00:00",
+      "finished_at": "2026-05-19T08:17:26.537988+00:00",
+      "output_lines": 29
+    },
+    {
+      "name": "camera_eo_set_zoom_focus",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 53.17,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "zoom",
+        "focus"
+      ],
+      "started_at": "2026-05-19T08:17:27.540289+00:00",
+      "finished_at": "2026-05-19T08:18:20.706294+00:00",
+      "output_lines": 80
+    },
+    {
+      "name": "camera_eo_trigger_wb_onepush",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 5.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "white-balance"
+      ],
+      "started_at": "2026-05-19T08:18:21.708564+00:00",
+      "finished_at": "2026-05-19T08:18:26.813800+00:00",
+      "output_lines": 19
+    },
+    {
+      "name": "camera_ir_capture_image",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 4.78,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "capture"
+      ],
+      "started_at": "2026-05-19T08:18:27.816124+00:00",
+      "finished_at": "2026-05-19T08:18:32.595313+00:00",
+      "output_lines": 41
+    },
+    {
+      "name": "camera_ir_record_video",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 12.15,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "record"
+      ],
+      "started_at": "2026-05-19T08:18:33.596178+00:00",
+      "finished_at": "2026-05-19T08:18:45.744249+00:00",
+      "output_lines": 35
+    },
+    {
+      "name": "camera_ir_set_palette",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 20.23,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "palette"
+      ],
+      "started_at": "2026-05-19T08:18:46.746718+00:00",
+      "finished_at": "2026-05-19T08:19:06.975069+00:00",
+      "output_lines": 27
+    },
+    {
+      "name": "camera_ir_set_zoom",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 41.24,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "zoom"
+      ],
+      "started_at": "2026-05-19T08:19:07.976645+00:00",
+      "finished_at": "2026-05-19T08:19:49.211748+00:00",
+      "output_lines": 67
+    },
+    {
+      "name": "camera_ir_do_ffc_control",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 26.19,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "ffc"
+      ],
+      "started_at": "2026-05-19T08:19:50.214343+00:00",
+      "finished_at": "2026-05-19T08:20:16.407769+00:00",
+      "output_lines": 21
+    },
+    {
+      "name": "camera_ir_isotherm_profile",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 25.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "ir",
+        "isotherm"
+      ],
+      "started_at": "2026-05-19T08:20:17.409706+00:00",
+      "finished_at": "2026-05-19T08:20:42.514762+00:00",
+      "output_lines": 84
+    },
+    {
+      "name": "camera_time_lapse_photography",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 15.31,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:20:43.516679+00:00",
+      "finished_at": "2026-05-19T08:20:58.823297+00:00",
+      "output_lines": 24
+    },
+    {
+      "name": "camera_change_settings",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 10.2,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:20:59.825902+00:00",
+      "finished_at": "2026-05-19T08:21:10.024663+00:00",
+      "output_lines": 108
+    },
+    {
+      "name": "camera_load_settings",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 11.7,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "settings"
+      ],
+      "started_at": "2026-05-19T08:21:11.027226+00:00",
+      "finished_at": "2026-05-19T08:21:22.728072+00:00",
+      "output_lines": 60
+    },
+    {
+      "name": "camera_do_setzoom_individual",
+      "status": "PASS",
+      "passed": true,
+      "duration_s": 55.11,
+      "return_code": 0,
+      "attempt": 1,
+      "failure_reason": "",
+      "tags": [
+        "camera",
+        "eo",
+        "zoom"
+      ],
+      "started_at": "2026-05-19T08:21:23.730687+00:00",
+      "finished_at": "2026-05-19T08:22:18.836253+00:00",
+      "output_lines": 189
+    }
+  ]
+}

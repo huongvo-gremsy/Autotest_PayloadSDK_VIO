@@ -1,0 +1,29 @@
+PayloadSDK Test Summary
+========================================
+Started : 2026-05-19T08:30:51.070699+00:00
+Finished: 2026-05-19T08:32:58.787742+00:00
+Duration: 127.72s
+
+Summary
+  Total  : 16
+  Passed : 14
+  Failed : 1
+  Skipped: 1
+
+Steps
+[PASS] payload_do_object_detection | duration=12.2s | attempt=1 | rc=0
+[PASS] payload_do_object_tracking | duration=15.11s | attempt=1 | rc=0
+[PASS] payload_download_media_files | duration=8.1s | attempt=1 | rc=-2
+[SKIP] payload_extract_tiff_file | duration=0.0s | attempt=1 | rc=None
+[PASS] payload_get_component_info | duration=8.11s | attempt=1 | rc=0
+[PASS] payload_get_fov_status | duration=8.11s | attempt=1 | rc=0
+[PASS] payload_get_status | duration=8.1s | attempt=1 | rc=0
+[FAIL] payload_get_video_streaming | duration=3.23s | attempt=1 | rc=0 | reason=Missing expected output: ['---> Got payload has streaming video, Check streaming URI', '---> Got streaming information: ', 'Gstreamer thread created']
+[PASS] payload_set_camera_zoom_targetpos | duration=25.11s | attempt=1 | rc=0
+[PASS] payload_set_gps | duration=8.11s | attempt=1 | rc=0
+[PASS] payload_set_stream_bitrate | duration=1.67s | attempt=1 | rc=0
+[PASS] payload_set_stream_profile | duration=1.72s | attempt=1 | rc=0
+[PASS] payload_set_stream_resolution | duration=1.67s | attempt=1 | rc=0
+[PASS] payload_set_stream_resolution_2_random | duration=1.62s | attempt=1 | rc=0
+[PASS] payload_set_stream_resolution_3_random | duration=1.72s | attempt=1 | rc=0
+[PASS] payload_set_system_time | duration=8.11s | attempt=1 | rc=0

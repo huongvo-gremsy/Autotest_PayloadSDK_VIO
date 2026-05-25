@@ -1,0 +1,47 @@
+15:22:55 [INFO] PayloadSDK Gimbal Test Runner
+15:22:55 [INFO] Build dir : build/examples
+15:22:55 [INFO] Steps     : 8 active, 0 skipped
+15:22:55 [INFO] ━━ [check_connect] Starting: build/examples/check_connect
+15:23:03 [INFO] [check_connect] max_duration=8.0s reached — sending SIGINT.
+15:23:03 [INFO] [check_connect] Sending SIGINT (Ctrl+C equivalent)…
+15:23:03 [INFO] ── [check_connect] PASS  (8.1s, rc=0)
+15:23:03 [INFO] [check_connect] Waiting 2.0s before next step…
+15:23:05 [INFO] PASS  check_connect                  PASS  8.1s
+15:23:05 [INFO] ━━ [gimbal_load_settings_before] Starting: build/examples/gimbal_load_settings
+15:23:08 [INFO] [gimbal_load_settings_before] All expected outputs found — terminating early.
+15:23:08 [INFO] [gimbal_load_settings_before] Sending SIGINT (Ctrl+C equivalent)…
+15:23:08 [INFO] ── [gimbal_load_settings_before] PASS  (2.7s, rc=0)
+15:23:08 [INFO] [gimbal_load_settings_before] Waiting 1.0s before next step…
+15:23:09 [INFO] PASS  gimbal_load_settings_before    PASS  2.7s
+15:23:09 [INFO] ━━ [gimbal_change_settings] Starting: build/examples/gimbal_change_settings
+15:23:17 [INFO] ── [gimbal_change_settings] PASS  (7.7s, rc=0)
+15:23:17 [INFO] [gimbal_change_settings] Waiting 1.0s before next step…
+15:23:18 [INFO] PASS  gimbal_change_settings         PASS  7.7s
+15:23:18 [INFO] ━━ [gimbal_load_settings_after] Starting: build/examples/gimbal_load_settings
+15:23:20 [INFO] [gimbal_load_settings_after] All expected outputs found — terminating early.
+15:23:20 [INFO] [gimbal_load_settings_after] Sending SIGINT (Ctrl+C equivalent)…
+15:23:20 [INFO] ── [gimbal_load_settings_after] PASS  (2.8s, rc=0)
+15:23:20 [INFO] [gimbal_load_settings_after] Waiting 1.0s before next step…
+15:23:21 [INFO] PASS  gimbal_load_settings_after     PASS  2.8s
+15:23:21 [INFO] ━━ [gimbal_move_angle] Starting: build/examples/gimbal_move_angle -p -10.0 -y 15.0
+15:23:28 [INFO] ── [gimbal_move_angle] FAIL  (6.4s, rc=0)  ✗ Missing expected output: ['Mount Orient : Pich: -10.00 - Roll: -0.00 - Yaw: 15.00']
+15:23:28 [INFO] [gimbal_move_angle] Waiting 1.0s before next step…
+15:23:29 [INFO] FAIL  gimbal_move_angle              FAIL  6.4s
+15:23:29 [INFO] ━━ [gimbal_move_speed] Starting: build/examples/gimbal_move_speed
+15:23:41 [INFO] ── [gimbal_move_speed] PASS  (11.9s, rc=0)
+15:23:41 [INFO] [gimbal_move_speed] Waiting 1.0s before next step…
+15:23:42 [INFO] PASS  gimbal_move_speed              PASS  11.9s
+15:23:42 [INFO] ━━ [gimbal_set_mode] Starting: build/examples/gimbal_set_mode
+15:24:08 [INFO] ── [gimbal_set_mode] PASS  (26.2s, rc=0)
+15:24:08 [INFO] [gimbal_set_mode] Waiting 1.0s before next step…
+15:24:09 [INFO] PASS  gimbal_set_mode                PASS  26.2s
+15:24:09 [INFO] ━━ [gimbal_control_example] Starting: build/examples/gimbal_control_example
+15:25:32 [INFO] ── [gimbal_control_example] PASS  (83.0s, rc=0)
+15:25:32 [INFO] [gimbal_control_example] Waiting 1.0s before next step…
+15:25:33 [INFO] PASS  gimbal_control_example         PASS  83.0s
+15:25:33 [INFO] 
+15:25:33 [INFO] =======================================================
+15:25:33 [INFO]   RESULTS:  7 passed  1 failed  0 skipped  (157.9s total)
+15:25:33 [INFO] =======================================================
+15:25:33 [INFO] Report written → /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/gimbal_20260519_152255/gimbal_20260519_152533.html
+15:25:33 [INFO] LOG file    -> /home/huongvo/Documents/testing_documents/sdk_cpp/PayloadSDK_VIO/PayloadSdk/automation/report/gimbal_20260519_152255/gimbal_20260519_152255.log

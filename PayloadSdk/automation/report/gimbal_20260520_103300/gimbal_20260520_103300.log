@@ -1,0 +1,38 @@
+10:33:00 [INFO] PayloadSDK Gimbal Test Runner
+10:33:00 [INFO] Build dir : build/examples
+10:33:00 [INFO] Steps     : 8 active, 0 skipped
+10:33:00 [INFO] ━━ [check_connect] Starting: build/examples/check_connect
+10:33:08 [INFO] [check_connect] max_duration=8.0s reached — sending SIGINT.
+10:33:08 [INFO] [check_connect] Sending SIGINT (Ctrl+C equivalent)…
+10:33:08 [INFO] ── [check_connect] PASS  (8.1s, rc=0)
+10:33:08 [INFO] [check_connect] Waiting 2.0s before next step…
+10:33:10 [INFO] PASS  check_connect                  PASS  8.1s
+10:33:10 [INFO] ━━ [gimbal_load_settings_before] Starting: build/examples/gimbal_load_settings
+10:33:13 [INFO] [gimbal_load_settings_before] All expected outputs found — terminating early.
+10:33:13 [INFO] [gimbal_load_settings_before] Sending SIGINT (Ctrl+C equivalent)…
+10:33:13 [INFO] ── [gimbal_load_settings_before] PASS  (2.6s, rc=0)
+10:33:13 [INFO] [gimbal_load_settings_before] Waiting 1.0s before next step…
+10:33:14 [INFO] PASS  gimbal_load_settings_before    PASS  2.6s
+10:33:14 [INFO] ━━ [gimbal_change_settings] Starting: build/examples/gimbal_change_settings
+10:33:21 [INFO] ── [gimbal_change_settings] PASS  (7.7s, rc=0)
+10:33:21 [INFO] [gimbal_change_settings] Waiting 1.0s before next step…
+10:33:22 [INFO] PASS  gimbal_change_settings         PASS  7.7s
+10:33:22 [INFO] ━━ [gimbal_load_settings_after] Starting: build/examples/gimbal_load_settings
+10:33:25 [INFO] [gimbal_load_settings_after] All expected outputs found — terminating early.
+10:33:25 [INFO] [gimbal_load_settings_after] Sending SIGINT (Ctrl+C equivalent)…
+10:33:25 [INFO] ── [gimbal_load_settings_after] PASS  (2.8s, rc=0)
+10:33:25 [INFO] [gimbal_load_settings_after] Waiting 1.0s before next step…
+10:33:26 [INFO] PASS  gimbal_load_settings_after     PASS  2.8s
+10:33:26 [INFO] ━━ [gimbal_move_angle] Starting: build/examples/gimbal_move_angle -p -10.0 -y 15.0
+10:33:32 [INFO] ── [gimbal_move_angle] FAIL  (6.4s, rc=0)  ✗ Missing expected output: ['Mount Orient : Pich: -10.00 - Roll: -0.00 - Yaw: 15.00']
+10:33:32 [INFO] [gimbal_move_angle] Waiting 1.0s before next step…
+10:33:33 [INFO] FAIL  gimbal_move_angle              FAIL  6.4s
+10:33:33 [INFO] ━━ [gimbal_move_speed] Starting: build/examples/gimbal_move_speed
+10:33:45 [INFO] ── [gimbal_move_speed] PASS  (12.0s, rc=0)
+10:33:45 [INFO] [gimbal_move_speed] Waiting 1.0s before next step…
+10:33:46 [INFO] PASS  gimbal_move_speed              PASS  12.0s
+10:33:46 [INFO] ━━ [gimbal_set_mode] Starting: build/examples/gimbal_set_mode
+10:34:13 [INFO] ── [gimbal_set_mode] PASS  (26.3s, rc=0)
+10:34:13 [INFO] [gimbal_set_mode] Waiting 1.0s before next step…
+10:34:14 [INFO] PASS  gimbal_set_mode                PASS  26.3s
+10:34:14 [INFO] ━━ [gimbal_control_example] Starting: build/examples/gimbal_control_example
